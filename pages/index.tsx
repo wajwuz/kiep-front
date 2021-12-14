@@ -1,3 +1,4 @@
+import * as CSS from "csstype"
 import { Box, Button, Flex, Text, Image, Heading, VStack, HStack, Spacer, Grid, SimpleGrid, Center } from '@chakra-ui/react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
@@ -15,6 +16,8 @@ const Home: NextPage = () => (
       <Center>
         <Box>
           <Landing />
+
+          <Statistics />
 
           <Zalets />
 
@@ -58,6 +61,35 @@ const Landing = () => (
   </Flex>
 )
 
+const Statistics = () => (
+  <VStack
+    spacing="3rem"
+    margin={"0 0 15rem 0"}
+  >
+    <Heading>Statystyki</Heading>
+
+    <HStack spacing="8rem">
+      <StatisticEntry textColor="#FFB6B6" />
+      <StatisticEntry textColor="#B6FFE5" />
+      <StatisticEntry textColor="#B6D3FF" />
+    </HStack>
+  </VStack>
+)
+
+type StatisticEntryProps = { textColor: CSS.Property.Color; }
+
+const StatisticEntry: React.FC<StatisticEntryProps> = ({ textColor }) => (
+  <Box maxWidth="25rem" align="center">
+    <Text fontSize="2.25rem"
+      fontWeight={800}
+      backgroundImage={"linear-gradient(110deg, " + textColor + ", #FFFFFF)"}
+      backgroundClip="text">
+      75683
+    </Text>
+    <Text fontSize="18px" color="#DFDFDF">osób uruchomiło <Text fontWeight={700} color={"#fff"}>BuzkaaClicker</Text> w ostatnich 30 dniach</Text>
+  </Box>
+);
+
 const Zalets = () => (
   <Box
     spacing={5}
@@ -69,25 +101,21 @@ const Zalets = () => (
       spacing={12}
       marginTop={"2rem"}
     >
-      <ZaletsWidget color="#312323" title={"Kąfiguracja"} description={"W naszym autoclickerze możesz przypisać" +
+      <ZaletsEntry color="#312323" title="Kąfiguracja" description={"W naszym autoclickerze możesz przypisać" +
         "klawisz na wiele sposobów. Dodatkowo działa tylko w oknie gry! Koniec z przypadkowymi kliknięciami."} />
 
-      <ZaletsWidget color="#233123" title={"Kąfiguracja"} description={"W naszym autoclickerze możesz przypisać" +
+      <ZaletsEntry color="#233123" title="Kąfiguracja" description={"W naszym autoclickerze możesz przypisać" +
         "klawisz na wiele sposobów. Dodatkowo działa tylko w oknie gry! Koniec z przypadkowymi kliknięciami."} />
 
-      <ZaletsWidget color="#23202D" title={"Kąfiguracja"} description={"W naszym autoclickerze możesz przypisać" +
+      <ZaletsEntry color="#23202D" title="Kąfiguracja" description={"W naszym autoclickerze możesz przypisać" +
         "klawisz na wiele sposobów. Dodatkowo działa tylko w oknie gry! Koniec z przypadkowymi kliknięciami."} />
     </SimpleGrid>
   </Box>
 )
 
-interface ZaletsProps {
-  title: string;
-  description: string;
-  color: string;
-}
+type ZaletsEntryProps = { title: string; description: string; color: CSS.Property.Color; }
 
-const ZaletsWidget: React.FC<ZaletsProps> = ({ title, description, color }) => (
+const ZaletsEntry: React.FC<ZaletsEntryProps> = ({ title, description, color }) => (
   <Box
     backgroundColor={color}
     padding={{ base: "2rem 2rem", lg: "50px" }}
