@@ -1,8 +1,11 @@
 import * as CSS from "csstype"
-import { Box, Button, Flex, Text, Image, Heading, VStack, HStack, Spacer, Grid, SimpleGrid, Center } from '@chakra-ui/react'
+import { Box, Button, Flex, Text, Heading, VStack, HStack, Spacer, Grid, SimpleGrid, Center, Stack } from '@chakra-ui/react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { Icon } from '@iconify/react';
+import Section from "../components/section_header";
+import ProTag from "../components/pro_tag";
+import { Image, OutlinedImage } from "../components/image";
 
 const Home: NextPage = () => (
   <>
@@ -14,15 +17,17 @@ const Home: NextPage = () => (
 
     <main>
       <Center>
-        <Box>
+        <VStack spacing="8.75rem" maxWidth="75rem" margin="0 1rem">
           <Landing />
 
           <Statistics />
 
           <Zalets />
 
-          <Box marginBottom={1000} />
-        </Box>
+          <Features />
+
+          <Box height="100vh" />
+        </VStack>
       </Center>
     </main>
   </>
@@ -52,34 +57,34 @@ const Landing = () => (
       <Button width={180} marginBottom={10}>Buy kup teraz</Button>
     </Box>
 
-    <Image src="/home_cropped.png" alt="Strona Główna BuzkaaClickera"
-      border="0.7rem solid"
-      style={{
-        borderImageSlice: 1,
-        borderImageSource: "linear-gradient(180deg, rgba(148,179,253,1) 0%, rgba(36,38,43,0) 100%)",
-      }} />
+    <OutlinedImage src="/home_cropped.png" alt="Strona Główna BuzkaaClickera" width="416px" height="556px" />
   </Flex>
 )
 
 const Statistics = () => (
   <VStack
-    spacing="3rem"
-    margin={"0 0 15rem 0"}
+    spacing="2rem"
   >
     <Heading>Statystyki</Heading>
 
-    <HStack spacing="8rem">
+    <Flex
+      align="center"
+      direction={{ base: "column", xl: "row" }}
+      textAlign={{ base: "center", xl: "left" }}
+      justifyContent={"center"}
+      margin="3rem"
+    >
       <StatisticEntry textColor="#FFB6B6" />
       <StatisticEntry textColor="#B6FFE5" />
       <StatisticEntry textColor="#B6D3FF" />
-    </HStack>
+    </Flex>
   </VStack>
 )
 
 type StatisticEntryProps = { textColor: CSS.Property.Color; }
 
 const StatisticEntry: React.FC<StatisticEntryProps> = ({ textColor }) => (
-  <Box maxWidth="25rem" align="center">
+  <Box align="center" m="1rem 3rem">
     <Text fontSize="2.25rem"
       fontWeight={800}
       backgroundImage={"linear-gradient(110deg, " + textColor + ", #FFFFFF)"}
@@ -91,26 +96,24 @@ const StatisticEntry: React.FC<StatisticEntryProps> = ({ textColor }) => (
 );
 
 const Zalets = () => (
-  <Box
-    spacing={5}
-    margin={{ base: "0 1em", lg: "0 3em" }}>
-    <Heading>Zalety, które pokochasz</Heading>
-    <Text marginTop={3} variant="secondary">Tylko zalety, bo jesteśmy zajebiści.</Text>
+  <Section
+    title="Zalety, które pokochasz"
+    description="Tylko zalety, bo jesteśmy zajebiści."
+  >
     <SimpleGrid
       columns={{ base: 1, lg: 2 }}
       spacing={12}
-      marginTop={"2rem"}
     >
-      <ZaletsEntry color="#312323" title="Kąfiguracja" description={"W naszym autoclickerze możesz przypisać" +
+      <ZaletsEntry color="#312323" title="Kąfiguracja" description={"W naszym autoclickerze możesz przypisać " +
         "klawisz na wiele sposobów. Dodatkowo działa tylko w oknie gry! Koniec z przypadkowymi kliknięciami."} />
 
-      <ZaletsEntry color="#233123" title="Kąfiguracja" description={"W naszym autoclickerze możesz przypisać" +
+      <ZaletsEntry color="#233123" title="Kąfiguracja" description={"W naszym autoclickerze możesz przypisać " +
         "klawisz na wiele sposobów. Dodatkowo działa tylko w oknie gry! Koniec z przypadkowymi kliknięciami."} />
 
-      <ZaletsEntry color="#23202D" title="Kąfiguracja" description={"W naszym autoclickerze możesz przypisać" +
+      <ZaletsEntry color="#23202D" title="Kąfiguracja" description={"W naszym autoclickerze możesz przypisać " +
         "klawisz na wiele sposobów. Dodatkowo działa tylko w oknie gry! Koniec z przypadkowymi kliknięciami."} />
     </SimpleGrid>
-  </Box>
+  </Section>
 )
 
 type ZaletsEntryProps = { title: string; description: string; color: CSS.Property.Color; }
@@ -120,7 +123,6 @@ const ZaletsEntry: React.FC<ZaletsEntryProps> = ({ title, description, color }) 
     backgroundColor={color}
     padding={{ base: "2rem 2rem", lg: "50px" }}
     borderRadius={"18px"}
-    maxWidth={"563px"}
     align={"start"}
     justifyContent={"start"}
   >
@@ -132,6 +134,54 @@ const ZaletsEntry: React.FC<ZaletsEntryProps> = ({ title, description, color }) 
         <Text fontSize={"16px"} color={"#AAAAAA"}>{description}</Text>
       </VStack>
     </HStack>
+  </Box>
+)
+
+const Features = () => (
+  <Section
+    title="Funkcje"
+    description="Scyzoryk, ale do Minecrafta."
+  >
+    <Flex direction="column" alignItems="center">
+      {/* background */}
+      <Box backgroundColor="#24262B" width="100%" height="28.75rem" borderRadius="1.125rem" />
+      <Flex position="absolute" paddingTop="3.125rem" direction="column" alignItems="center">
+        <Flex direction={{ base: "column", lg: "row" }}>
+          <FeatureButton title="Klikanie" active={true} />
+          <FeatureButton title="Konfiguracja" />
+          <FeatureButton title="Kopanie" pro={true} />
+          <FeatureButton title="Dodatkowa essa" pro={true} />
+        </Flex>
+
+        <FeaturePreview />
+      </Flex>
+    </Flex>
+  </Section>
+)
+
+type FeatureButtonProps = {
+  title: String;
+  active?: boolean;
+  pro?: boolean;
+};
+
+const FeatureButton = ({ title, active, pro }: FeatureButtonProps) => (
+  <Box
+    backgroundColor={active ? "#94B3FD" : "transparent"}
+    padding="0 1.375rem"
+    borderRadius="0.5rem"
+    display="flex"
+    alignItems="center"
+    height="2.75rem"
+  >
+    <Text fontSize={20} fontWeight={600}>{title}</Text>
+    {pro ? <ProTag marginLeft="1rem" /> : null}
+  </Box>
+)
+
+const FeaturePreview = () => (
+  <Box margin={{ base: "1.125rem 2rem 0 2rem", lg: "3.125rem 2rem 0 2rem" }}>
+    <OutlinedImage src="/feature_preview_sample_text.png" width="879px" height="556px" />
   </Box>
 )
 

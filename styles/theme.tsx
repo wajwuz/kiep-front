@@ -22,7 +22,7 @@ const theme = extendTheme({
       variants: {
         "secondary": {
           color: "#AAAAAA",
-          fontSize: {base: "1rem", lg: "1.25rem"},
+          fontSize: { base: "1rem", lg: "1.25rem" },
         }
       }
     },
