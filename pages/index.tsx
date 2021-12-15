@@ -69,8 +69,8 @@ const Statistics = () => (
 
     <Flex
       align="center"
-      direction={{ base: "column", xl: "row" }}
-      textAlign={{ base: "center", xl: "left" }}
+      direction={{ base: "column", md: "row" }}
+      textAlign={{ base: "center", md: "left" }}
       justifyContent={"center"}
       margin="3rem"
     >
