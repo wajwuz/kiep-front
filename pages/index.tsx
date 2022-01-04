@@ -17,7 +17,7 @@ const Home: NextPage = () => (
 
     <main>
       <Center>
-        <VStack spacing={{base: "4.75rem", lg: "8.75rem"}} maxWidth="68.688rem" margin="0 1rem">
+        <VStack spacing={{ base: "4.75rem", lg: "8.75rem" }} maxWidth="68.688rem" margin="0 3rem">
           <Landing />
 
           <Statistics />
@@ -44,9 +44,9 @@ const Landing = () => (
     margin="3rem"
     minHeight="100vh"
   >
-    <Box maxWidth={600}>
+    <Box maxWidth={600} marginBottom={10}>
       <Box marginBottom={5} maxWidth={500} marginRight={{ base: "0", xl: "5rem" }}>
-        <Heading fontSize={{ base: "1.6rem", lg: "2.6rem" }}>
+        <Heading fontSize={{ base: "2rem", md: "2.6rem" }}>
           Przyjazny autoclicker,<br />
           tworzony z myślą o tobie
         </Heading>
@@ -144,7 +144,7 @@ const Features = () => (
     title="Funkcje"
     description="Scyzoryk, ale do Minecrafta."
   >
-    <SectionCard minHeight="25rem">
+    <SectionCard minHeight="21rem">
       <Flex direction={{ base: "column", lg: "row" }}>
         <FeatureButton title="Klikanie" active={true} />
         <FeatureButton title="Konfiguracja" />
