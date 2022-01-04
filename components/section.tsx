@@ -10,7 +10,7 @@ type SectionProps = {
 export const Section = ({ title, description, children }: SectionProps) => (
     <Box margin={5} width="100%">
         <Flex
-            align={{ base: "center", lg: "start" }}
+            textAlign={{ base: "center", lg: "start" }}
             direction="column"
         >
             <Heading>{title}</Heading>
