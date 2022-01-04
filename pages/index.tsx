@@ -1,9 +1,9 @@
 import * as CSS from "csstype"
-import { Box, Button, Flex, Text, Heading, VStack, HStack, Spacer, Grid, SimpleGrid, Center, Stack } from '@chakra-ui/react'
+import { Box, Button, Flex, Text, Heading, VStack, HStack, Spacer, SimpleGrid, Center } from '@chakra-ui/react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { Icon } from '@iconify/react';
-import Section from "../components/section_header";
+import { Section, SectionCard } from "../components/section";
 import ProTag from "../components/pro_tag";
 import { Image, OutlinedImage } from "../components/image";
 
@@ -17,7 +17,7 @@ const Home: NextPage = () => (
 
     <main>
       <Center>
-        <VStack spacing="8.75rem" maxWidth="75rem" margin="0 1rem">
+        <VStack spacing={{base: "4.75rem", lg: "8.75rem"}} maxWidth="68.688rem" margin="0 1rem">
           <Landing />
 
           <Statistics />
@@ -25,6 +25,8 @@ const Home: NextPage = () => (
           <Zalets />
 
           <Features />
+
+          <Downloads />
 
           <Box height="100vh" />
         </VStack>
@@ -54,7 +56,7 @@ const Landing = () => (
         </Text>
       </Box>
 
-      <Button width={180} marginBottom={10}>Buy kup teraz</Button>
+      <Button width={180}>Buy kup teraz</Button>
     </Box>
 
     <OutlinedImage src="/home_cropped.png" alt="Strona Główna BuzkaaClickera" width="416px" height="556px" />
@@ -105,7 +107,7 @@ const Zalets = () => (
       spacing={12}
     >
       <ZaletsEntry color="#312323" title="Kąfiguracja" description={"W naszym autoclickerze możesz przypisać " +
-        "klawisz na wiele sposobów. Dodatkowo działa tylko w oknie gry! Koniec z przypadkowymi kliknięciami."} />
+        "klawisz na wiele s)posobów. Dodatkowo działa tylko w oknie gry! Koniec z przypadkowymi kliknięciami."} />
 
       <ZaletsEntry color="#233123" title="Kąfiguracja" description={"W naszym autoclickerze możesz przypisać " +
         "klawisz na wiele sposobów. Dodatkowo działa tylko w oknie gry! Koniec z przypadkowymi kliknięciami."} />
@@ -142,20 +144,16 @@ const Features = () => (
     title="Funkcje"
     description="Scyzoryk, ale do Minecrafta."
   >
-    <Flex direction="column" alignItems="center">
-      {/* background */}
-      <Box backgroundColor="#24262B" width="100%" height="28.75rem" borderRadius="1.125rem" />
-      <Flex position="absolute" paddingTop="3.125rem" direction="column" alignItems="center">
-        <Flex direction={{ base: "column", lg: "row" }}>
-          <FeatureButton title="Klikanie" active={true} />
-          <FeatureButton title="Konfiguracja" />
-          <FeatureButton title="Kopanie" pro={true} />
-          <FeatureButton title="Dodatkowa essa" pro={true} />
-        </Flex>
-
-        <FeaturePreview />
+    <SectionCard minHeight="25rem">
+      <Flex direction={{ base: "column", lg: "row" }}>
+        <FeatureButton title="Klikanie" active={true} />
+        <FeatureButton title="Konfiguracja" />
+        <FeatureButton title="Kopanie" pro={true} />
+        <FeatureButton title="Dodatkowa essa" pro={true} />
       </Flex>
-    </Flex>
+
+      <FeaturePreview />
+    </SectionCard>
   </Section>
 )
 
@@ -180,9 +178,76 @@ const FeatureButton = ({ title, active, pro }: FeatureButtonProps) => (
 )
 
 const FeaturePreview = () => (
-  <Box margin={{ base: "1.125rem 2rem 0 2rem", lg: "3.125rem 2rem 0 2rem" }}>
+  <Box marginTop={{ base: "1.125rem", lg: "3.125rem" }}>
     <OutlinedImage src="/feature_preview_sample_text.png" width="879px" height="556px" />
   </Box>
 )
 
+const Downloads = () => (
+  <Section
+    title="Pobierz"
+    description="Aktualna wersja v2115"
+  >
+    <Flex
+      align="center"
+      direction={{ base: "column", lg: "row" }}
+      textAlign={{ base: "center", lg: "left" }}
+      gap={{ base: "1rem", lg: "5rem" }}
+      marginBottom="3.125rem"
+    >
+      <Image src="/download_preview.svg" width="638px" height="368px" />
+      <VStack spacing="2rem" alignItems={{ base: "center", lg: "start" }}>
+        <DownloadVersion
+          title="BuzkaaClicker"
+          subtitle="Windows Vista z Service Pack 2 oraz nowsze"
+          getText="Pobierz teraz" />
+        <DownloadVersion
+          title={<DownloadBuzkaaClickerProLogo />}
+          subtitle="Wersja premium dla bardziej wymagających"
+          getText="kup tera" />
+      </VStack>
+    </Flex>
+
+    <DownloadTutorial />
+  </Section >
+)
+
+const DownloadBuzkaaClickerProLogo = () => (
+  <Flex justifyContent={{ base: "center", lg: "start" }} alignItems="center" gap="0.6rem">
+    <p>BuzkaaClicker</p><ProTag />
+  </Flex>
+)
+
+type DownloadVersionProps = {
+  title: React.ReactNode | String;
+  subtitle: String;
+  getText: String;
+};
+
+const DownloadVersion = ({ title, subtitle, getText }: DownloadVersionProps) => (
+  <Box>
+    <Heading fontSize={"1.5rem"}>{title}</Heading>
+    <Text variant="secondary" marginTop="0.25rem">{subtitle}</Text>
+    <Button marginTop="1rem" width="12.75rem">{getText}</Button>
+  </Box>
+)
+
+const DownloadTutorial = () => (
+  <>
+    <Heading
+      fontSize='1.5rem'
+      marginBottom="2rem"
+      textAlign={{ base: "center", lg: "start" }}
+    >
+      Poradnik instalacji w formie filmu
+    </Heading>
+
+    <SectionCard minHeight="5rem">
+      <Image src="/download_tutorial_mock.png" width="999" height="588" />
+    </SectionCard>
+  </>
+)
+
 export default Home
+
+// 12:15

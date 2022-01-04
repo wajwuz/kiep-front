@@ -39,6 +39,9 @@ const theme = extendTheme({
           borderTop: "6px solid #FFFFFF1C",
           borderBottom: "6px solid #0000001C",
           boxShadow: "0px 4px 0px #0000001C",
+          fontWeight: "600",
+          fontSize: "1.05rem",
+          height: "2.938rem",
           _hover: {
             bg: "#194f17",
             color: "#AAA",
