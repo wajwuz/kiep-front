@@ -34,7 +34,7 @@ const theme = extendTheme({
     Button: {
       variants: {
         "primary": {
-          bg: "#339F30",
+          bg: "#3970C2",
           borderRadius: "0",
           borderTop: "6px solid #FFFFFF1C",
           borderBottom: "6px solid #0000001C",
@@ -43,7 +43,7 @@ const theme = extendTheme({
           fontSize: "1.05rem",
           height: "2.938rem",
           _hover: {
-            bg: "#194f17",
+            bg: "#25487C",
             color: "#AAA",
             transform: "translateY(-0.1em)"
           },
