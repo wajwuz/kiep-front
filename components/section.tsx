@@ -32,13 +32,13 @@ export const SectionCard = ({ minHeight, children }: SectionCardProps) => (
             backgroundColor="#24262B"
             width="100%"
             minHeight={minHeight}
-            height="40vw"
+            height="30vw"
             maxHeight="28.75rem"
             borderRadius="1.125rem" />
         <Flex
             gridColumnStart={1}
             gridRowStart={1}
-            padding="3.125rem 3.125rem 0 3.125rem"
+            padding={{base: "1.5rem 1.5rem 0 1.5rem", lg: "3.125rem 3.125rem 0 3.125rem"}}
             direction="column"
             alignItems="center">
             {children}

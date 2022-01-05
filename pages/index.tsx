@@ -17,7 +17,7 @@ const Home: NextPage = () => (
 
     <main>
       <Center>
-        <VStack spacing={{ base: "4.75rem", lg: "8.75rem" }} maxWidth="68.688rem" margin="0 3rem">
+        <VStack spacing={{ base: "4.75rem", lg: "8.75rem" }} maxWidth="68.688rem" margin="0 2rem">
           <Landing />
 
           <Statistics />
@@ -144,7 +144,7 @@ const Features = () => (
     title="Funkcje"
     description="Scyzoryk, ale do Minecrafta."
   >
-    <SectionCard minHeight="21rem">
+    <SectionCard minHeight="18rem">
       <Flex direction={{ base: "column", lg: "row" }}>
         <FeatureButton title="Klikanie" active={true} />
         <FeatureButton title="Konfiguracja" />
@@ -172,7 +172,7 @@ const FeatureButton = ({ title, active, pro }: FeatureButtonProps) => (
     alignItems="center"
     height="2.75rem"
   >
-    <Text fontSize={20} fontWeight={600}>{title}</Text>
+    <Text fontSize={{base: "0.9rem", md: 20}} fontWeight={600}>{title}</Text>
     {pro ? <ProTag marginLeft="1rem" /> : null}
   </Box>
 )
@@ -242,7 +242,7 @@ const DownloadTutorial = () => (
       Poradnik instalacji w formie filmu
     </Heading>
 
-    <SectionCard minHeight="5rem">
+    <SectionCard minHeight="1rem">
       <Image src="/download_tutorial_mock.png" width="999" height="588" />
     </SectionCard>
   </>
