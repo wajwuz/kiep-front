@@ -71,7 +71,7 @@ const MobileNavBar = () => (
                 variant='ghost'
             />
             <MenuList borderWidth="0">
-                {NAV_ITEMS.map(item => (<MobileNavBarItem {...item} />))}
+                {NAV_ITEMS.map(item => (<MobileNavBarItem key={item.title} {...item} />))}
 
                 <MobileNavBarItem display={{ base: "flex", md: "none" }} title="Zaloguj się przez Discord" href="#" />
             </MenuList>
