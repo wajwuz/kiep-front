@@ -1,5 +1,5 @@
 import * as CSS from "csstype"
-import { Box, Button, Flex, Text, Heading, VStack, HStack, Spacer, SimpleGrid, Center } from '@chakra-ui/react'
+import { Box, Button, Flex, Text, Heading, VStack, HStack, Spacer, SimpleGrid, Center, ColorModeScript } from '@chakra-ui/react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { Icon } from '@iconify/react';
@@ -7,6 +7,7 @@ import { Section, SectionCard } from "../components/section";
 import ProTag from "../components/pro_tag";
 import { Image, OutlinedImage } from "../components/image";
 import NavBar from "../components/navbar";
+import theme from "../styles/theme";
 
 const Home: NextPage = () => (
   <>
@@ -16,25 +17,27 @@ const Home: NextPage = () => (
       <link rel="icon" href="/favicon.ico" />
     </Head>
 
-    <NavBar />
+    <body>
+      <NavBar />
 
-    <main>
-      <Center>
-        <VStack spacing={{ base: "4.75rem", lg: "8.75rem" }} maxWidth="68.688rem" margin="0 2rem">
-          <Landing />
+      <main>
+        <Center>
+          <VStack spacing={{ base: "4.75rem", lg: "8.75rem" }} maxWidth="68.688rem" margin="0 2rem">
+            <Landing />
 
-          <Statistics />
+            <Statistics />
 
-          <Zalets />
+            <Zalets />
 
-          <Features />
+            <Features />
 
-          <Downloads />
+            <Downloads />
 
-          <Box height="100vh" />
-        </VStack>
-      </Center>
-    </main>
+            <Box height="100vh" />
+          </VStack>
+        </Center>
+      </main>
+    </body>
   </>
 )
 

@@ -1,8 +1,14 @@
-import { Box, Button, ButtonProps, Center, Flex, Link, SlideFade, Spacer, useDisclosure } from "@chakra-ui/react";
+import { AddIcon, EditIcon, ExternalLinkIcon, HamburgerIcon, RepeatIcon } from "@chakra-ui/icons";
+import {
+    Box, Button, ButtonProps, Center, Flex, IconButton, LayoutProps, Link,
+    LinkProps,
+    Menu, MenuButton, MenuItem, MenuList, SlideFade, Spacer, useDisclosure,
+} from "@chakra-ui/react";
 
 type NavItem = {
     title: string;
     href?: string;
+    layoutProps?: LayoutProps;
 }
 
 const NAV_ITEMS: Array<NavItem> = [
@@ -37,10 +43,12 @@ const DesktopNavBar = () => (
 
         {NAV_ITEMS.map(item => (
             <Link
+                key={item.title}
                 fontWeight="600"
-                color="#AAAAAA"
+                color="#aaa"
                 marginLeft="3.625rem"
                 textTransform="uppercase"
+                href={item.href}
             >
                 {item.title}
             </Link>
@@ -52,34 +60,52 @@ const DesktopNavBar = () => (
     </Flex>
 )
 
-const MobileNavBar = () => {
-    const { isOpen, onToggle } = useDisclosure();
+const MobileNavBar = () => (
+    <Box display={{ base: "flex", '2xl': "none" }} alignItems="center">
+        <Menu>
+            <MenuButton
+                width="2.5rem"
+                as={IconButton}
+                aria-label='Nawigacja'
+                icon={<HamburgerIcon />}
+                variant='ghost'
+            />
+            <MenuList borderWidth="0">
+                {NAV_ITEMS.map(item => (<MobileNavBarItem {...item} />))}
 
-    return (
-        <>
-            <Flex display={{ base: "flex", '2xl': "none" }} alignItems="center">
-                <Button onClick={onToggle}>=</Button>
-                <Logo />
+                <MobileNavBarItem display={{ base: "flex", md: "none" }} title="Zaloguj się przez Discord" href="#" />
+            </MenuList>
+        </Menu>
 
-                <Spacer />
+        <Logo
+         marginLeft={{ base: "0", md: "1.5rem" }}
+         marginRight={{ base: "2.5rem", md: "0" }}
+         textAlign="center"
+         width={{base: "100%", md: "fit-content"}} />
 
-                <LoginWithDiscord display={{ base: "none", md: "flex" }} />
-            </Flex>
+        <Spacer />
 
-            <SlideFade in={isOpen} offsetY='20px'>
-            </SlideFade>
-        </>
-    )
-}
+        <LoginWithDiscord display={{ base: "none", md: "flex" }} />
+    </Box>
+)
 
-const Logo = () => (
+const MobileNavBarItem = (props: NavItem & LayoutProps) => (
+    <Link color="#aaa" href={props.href} {...props}>
+        <MenuItem key={props.title}>
+            {props.title}
+        </MenuItem>
+    </Link>
+)
+
+const Logo = (props: LinkProps) => (
     <Link
         width="11rem"
         fontWeight="600"
 
         isTruncated
+        {...props}
     >
-        BUZKAACLICKAC
+        BUZKAACLICKER
     </Link>
 )
 

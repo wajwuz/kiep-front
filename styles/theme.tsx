@@ -1,6 +1,15 @@
 import { extendTheme } from '@chakra-ui/react'
 
 const theme = extendTheme({
+  colors: {
+    gray: {
+      700: "#1a1a1c",
+    },
+  },
+  config: {
+    initialColorMode: "dark",
+    useSystemColorMode: false,
+  },
   fonts: {
     Heading: 'Inter',
     body: 'Inter',
@@ -17,6 +26,11 @@ const theme = extendTheme({
     },
   },
   components: {
+    MenuList: {
+      baseStyle: {
+        borderWidth: "0",
+      },
+    },
     Text: {
       variants: {
         "secondary": {
@@ -45,6 +59,11 @@ const theme = extendTheme({
     },
     Button: {
       variants: {
+        "ghost": {
+          _focus: {
+            boxShadow: "0px 4px 0px #0000001C",
+          },
+        },
         "primary": {
           bg: "#3970C2",
           borderRadius: "0",
@@ -84,7 +103,7 @@ const theme = extendTheme({
         variant: "primary",
       },
     },
-  }
+  },
 });
 
 export default theme;
