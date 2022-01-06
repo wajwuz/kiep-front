@@ -13,7 +13,6 @@ const theme = extendTheme({
       body: {
         bg: "#151517",
         color: "white",
-
       },
     },
   },
@@ -29,6 +28,19 @@ const theme = extendTheme({
     Heading: {
       baseStyle: {
         fontWeight: "800",
+      },
+    },
+    Link: {
+      baseStyle: {
+        color: "#94B3FD",
+        transition: "0.35s",
+        _hover: {
+          transform: "scale(1.01, 1)",
+          transformOrigin: "0 0",
+          letterSpacing: "1px",
+          outline: "0",
+          textDecoration: "none",
+        },
       },
     },
     Button: {
@@ -50,7 +62,23 @@ const theme = extendTheme({
           _focus: {
             boxShadow: "0px 4px 0px #0000001C",
           },
-        }
+        },
+        "discordLogin": {
+          borderRadius: "8",
+          bg: "#000",
+          fontWeight: "900",
+          padding: "0.875rem 1.313rem 0.875rem 1.313rem",
+          textTransform: "uppercase",
+          letterSpacing: "-0.05rem",
+          _hover: {
+            bg: "#222222",
+            color: "#AAA",
+            transform: "translateY(-0.1em)"
+          },
+          _focus: {
+            boxShadow: "0px 4px 0px #0000001C",
+          },
+        },
       },
       defaultProps: {
         variant: "primary",

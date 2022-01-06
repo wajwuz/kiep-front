@@ -6,6 +6,7 @@ import { Icon } from '@iconify/react';
 import { Section, SectionCard } from "../components/section";
 import ProTag from "../components/pro_tag";
 import { Image, OutlinedImage } from "../components/image";
+import NavBar from "../components/navbar";
 
 const Home: NextPage = () => (
   <>
@@ -14,6 +15,8 @@ const Home: NextPage = () => (
       <meta name="description" content="Strona główna" />
       <link rel="icon" href="/favicon.ico" />
     </Head>
+
+    <NavBar />
 
     <main>
       <Center>
@@ -41,8 +44,8 @@ const Landing = () => (
     direction={{ base: "column", xl: "row" }}
     textAlign={{ base: "center", xl: "left" }}
     justifyContent={"center"}
-    margin="3rem"
-    minHeight="100vh"
+    margin="0 3rem 0 3rem"
+    minHeight="calc(100vh - 8rem)"
   >
     <Box maxWidth={600} marginBottom={10}>
       <Box marginBottom={5} maxWidth={500} marginRight={{ base: "0", xl: "5rem" }}>
@@ -172,7 +175,7 @@ const FeatureButton = ({ title, active, pro }: FeatureButtonProps) => (
     alignItems="center"
     height="2.75rem"
   >
-    <Text fontSize={{base: "0.9rem", md: 20}} fontWeight={600}>{title}</Text>
+    <Text fontSize={{ base: "0.9rem", md: 20 }} fontWeight={600}>{title}</Text>
     {pro ? <ProTag marginLeft="1rem" /> : null}
   </Box>
 )
