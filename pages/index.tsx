@@ -8,6 +8,7 @@ import ProTag from "../components/pro_tag";
 import { Image, OutlinedImage } from "../components/image";
 import NavBar from "../components/navbar";
 import theme from "../styles/theme";
+import Footer from "../components/footer";
 
 const Home: NextPage = () => (
   <>
@@ -33,7 +34,7 @@ const Home: NextPage = () => (
 
             <Downloads />
 
-            <Box height="100vh" />
+            <Footer />
           </VStack>
         </Center>
       </main>
@@ -62,7 +63,7 @@ const Landing = () => (
         </Text>
       </Box>
 
-      <Button width={180}>Buy kup teraz</Button>
+      <Button width={180}>Zdobądź teraz</Button>
     </Box>
 
     <OutlinedImage src="/home_cropped.png" alt="Strona Główna BuzkaaClickera" width="416px" height="556px" />
