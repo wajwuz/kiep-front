@@ -1,4 +1,4 @@
-import { Heading, Link, SimpleGrid, VStack } from "@chakra-ui/react";
+import { Flex, Heading, Link, SimpleGrid, Spacer, Text, VStack } from "@chakra-ui/react";
 
 const COLUMNS: ColumnProps[] = [
     {
@@ -43,18 +43,22 @@ const COLUMNS: ColumnProps[] = [
 ]
 
 const Footer = () => (
-    <SimpleGrid
-        columns={{ base: 1, sm: 2, md: 3 }}
-        spacingY="2rem"
-        width="100%"
-        paddingBottom="5rem"
-    >
-        {
-            COLUMNS.map(column => (
-                <Column key={column.title} {...column} />
-            ))
-        }
-    </SimpleGrid>
+    <VStack width="100%">
+        <SimpleGrid
+            columns={{ base: 1, sm: 2, md: 3 }}
+            spacingY="2rem"
+            width="100%"
+            paddingBottom="2rem"
+        >
+            {
+                COLUMNS.map(column => (
+                    <Column key={column.title} {...column} />
+                ))
+            }
+        </SimpleGrid>
+
+        <LicenseAndAuthors />
+    </VStack>
 )
 
 type ColumnProps = {
@@ -74,6 +78,18 @@ const Column = ({ title, links }: ColumnProps) => (
             <Link key={link.title} href={link.href} color="#aaaaaa" fontSize="1.25rem">{link.title}</Link>
         ))}
     </VStack>
+)
+
+const LicenseAndAuthors = () => (
+    <Flex
+        width="100%"
+        paddingBottom="3rem"
+        direction={{ base: "column", xl: "row" }}
+    >
+        <Text color="#555555">© 2022 BuzkaaClicker. Wszelkie prawa zastrzeżone</Text>
+        <Spacer />
+        <Text color="#555555">Wykonanie: makin, Buzkaa, netsu (design), nat (pomoc przy OpenBSD).</Text>
+    </Flex>
 )
 
 export default Footer; 
