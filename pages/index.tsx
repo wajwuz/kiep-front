@@ -5,7 +5,7 @@ import Head from 'next/head'
 import { Icon } from '@iconify/react';
 import { Section, SectionCard } from "../components/section";
 import ProTag from "../components/pro_tag";
-import { Image as NextImage, OutlinedImage } from "../components/image";
+import { OutlinedImage } from "../components/image";
 import NavBar from "../components/navbar";
 import Footer from "../components/footer";
 import { BrowserView, isMobile } from "react-device-detect";
@@ -262,7 +262,7 @@ const FeatureButton = ({ info, active, onClick }: FeatureButtonProps) => (
 
 const FeaturePreview = (info: FeatureInfo) => (
   <Box marginTop={{ base: "1.125rem", lg: "3.125rem" }}>
-    <OutlinedImage src={info.image} width="879px" height="556px" />
+    <OutlinedImage src={info.image} alt={"Podgląd funkcji " + info.title} width="879px" height="556px" />
   </Box>
 )
 
@@ -278,7 +278,7 @@ const Downloads = () => (
       gap={{ base: "1rem", lg: "5rem" }}
       marginBottom="3.125rem"
     >
-      <NextImage src="/download_preview.svg" width="638px" height="368px" />
+      <Image src="/download_preview.svg" alt="Podgląd programu" width="638px" height="368px" />
       <VStack spacing="2rem" alignItems={{ base: "center", lg: "start" }}>
         <DownloadVersion
           title="BuzkaaClicker"
@@ -326,7 +326,7 @@ const DownloadTutorial = () => (
     </Heading>
 
     <SectionCard minHeight="1rem">
-      <NextImage src="/download_tutorial_mock.png" width="999" height="588" />
+      <Image src="/download_tutorial_mock.png" alt="Wideo poradnik zaślepka" width="999" height="588" />
     </SectionCard>
   </>
 )
