@@ -88,6 +88,7 @@ const theme = extendTheme({
         "discordLogin": {
           borderRadius: "8",
           bg: "#000",
+          color: "#fff",
           fontWeight: "900",
           padding: "0.875rem 1.313rem 0.875rem 1.313rem",
           textTransform: "uppercase",

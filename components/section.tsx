@@ -2,13 +2,14 @@ import { Box, Container, Flex, Heading, SimpleGrid, Text } from "@chakra-ui/reac
 import * as CSS from "csstype";
 
 type SectionProps = {
+    id: string;
     title: String;
     description: String;
     children?: JSX.Element | JSX.Element[];
 }
 
-export const Section = ({ title, description, children }: SectionProps) => (
-    <Box margin={5} width="100%">
+export const Section = ({ id, title, description, children }: SectionProps) => (
+    <Box id={id} margin={5} width="100%">
         <Flex
             textAlign={{ base: "center", lg: "start" }}
             direction="column"

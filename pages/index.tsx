@@ -8,7 +8,7 @@ import ProTag from "../components/pro_tag";
 import { OutlinedImage } from "../components/image";
 import NavBar from "../components/navbar";
 import Footer from "../components/footer";
-import { BrowserView, isMobile } from "react-device-detect";
+import { isMobile } from "react-device-detect";
 import { useState } from "react";
 
 const Home: NextPage = () => (
@@ -16,7 +16,7 @@ const Home: NextPage = () => (
     <Head>
       <title>Strona Główna - BuzkaaClicker.pl</title>
       <meta name="description" content="Strona główna" />
-      <link rel="icon" href="/favicon.ico" />
+      <link rel="icon" href="/static/favicon.ico" />
     </Head>
 
     <NavBar />
@@ -47,7 +47,7 @@ const HeroVideo = () => {
   if (isMobile) {
     return <Box />
   } else {
-    return <video src="fragalnia.mp4" autoPlay muted loop playsInline style={{
+    return <video src="/static/fragalnia.mp4" autoPlay muted loop playsInline style={{
       position: "absolute",
       top: 0,
       left: 0,
@@ -94,7 +94,7 @@ const Hero = () => (
     </Box>
 
     <Image
-      src="/home_cropped.png" alt="Strona Główna BuzkaaClickera"
+      src="/static/home_cropped.png" alt="Strona Główna BuzkaaClickera"
       width="420px"
       border="1px solid rgba(255, 255, 255, 0.05)"
       boxShadow="10px 10px 0px rgba(255, 255, 255, 0.02)"
@@ -106,6 +106,7 @@ const Hero = () => (
 
 const Statistics = () => (
   <VStack
+    id="statistics"
     spacing="2rem"
   >
     <Heading>Statystyki</Heading>
@@ -140,6 +141,7 @@ const StatisticEntry: React.FC<StatisticEntryProps> = ({ textColor }) => (
 
 const Zalets = () => (
   <Section
+    id="zalets"
     title="Zalety, które pokochasz"
     description="Tylko zalety, bo jesteśmy zajebiści."
   >
@@ -190,22 +192,22 @@ const FEATURES: Array<FeatureInfo> = [
   {
     title: "Klikanie",
     pro: false,
-    image: "/feature_preview_sample_text.png",
+    image: "/static/feature_preview_sample_text.png",
   },
   {
     title: "Konfiguracja",
     pro: false,
-    image: "/feature_preview_sample_text2.png",
+    image: "/static/feature_preview_sample_text2.png",
   },
   {
     title: "Kopanie",
     pro: true,
-    image: "/feature_preview_sample_text3.png",
+    image: "/static/feature_preview_sample_text3.png",
   },
   {
     title: "Dodatkowa essa",
     pro: true,
-    image: "/feature_preview_sample_text4.png",
+    image: "/static/feature_preview_sample_text4.png",
   },
 ]
 
@@ -214,6 +216,7 @@ const Features = () => {
 
   return (
     <Section
+      id="features"
       title="Funkcje"
       description="Scyzoryk, ale do Minecrafta."
     >
@@ -268,7 +271,8 @@ const FeaturePreview = (info: FeatureInfo) => (
 
 const Downloads = () => (
   <Section
-    title="Pobierz"
+    id="getit"
+    title="Zdobądź"
     description="Aktualna wersja v2115"
   >
     <Flex
@@ -278,7 +282,7 @@ const Downloads = () => (
       gap={{ base: "1rem", lg: "5rem" }}
       marginBottom="3.125rem"
     >
-      <Image src="/download_preview.svg" alt="Podgląd programu" width="638px" height="368px" />
+      <Image src="/static/download_preview.svg" alt="Podgląd programu" width="638px" height="368px" />
       <VStack spacing="2rem" alignItems={{ base: "center", lg: "start" }}>
         <DownloadVersion
           title="BuzkaaClicker"
@@ -326,7 +330,7 @@ const DownloadTutorial = () => (
     </Heading>
 
     <SectionCard minHeight="1rem">
-      <Image src="/download_tutorial_mock.png" alt="Wideo poradnik zaślepka" width="999" height="588" />
+      <Image src="/static/download_tutorial_mock.png" alt="Wideo poradnik zaślepka" width="999" height="588" />
     </SectionCard>
   </>
 )

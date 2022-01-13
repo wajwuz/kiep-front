@@ -1,9 +1,11 @@
-import { AddIcon, EditIcon, ExternalLinkIcon, HamburgerIcon, RepeatIcon } from "@chakra-ui/icons";
+import { HamburgerIcon } from "@chakra-ui/icons";
 import {
     Box, Button, ButtonProps, Center, Flex, IconButton, LayoutProps, Link,
     LinkProps,
-    Menu, MenuButton, MenuItem, MenuList, SlideFade, Spacer, useDisclosure,
+    Menu, MenuButton, MenuItem, MenuList, Spacer,
 } from "@chakra-ui/react";
+
+const LOGIN_DISCORD_URL = "/api/auth/discord"
 
 type NavItem = {
     title: string;
@@ -13,16 +15,20 @@ type NavItem = {
 
 const NAV_ITEMS: Array<NavItem> = [
     {
-        title: "Statystyki"
+        title: "Statystyki",
+        href: "/#statistics",
     },
     {
-        title: "Zalety"
+        title: "Zalety",
+        href: "/#zalets",
     },
     {
-        title: "Funkcje"
+        title: "Funkcje",
+        href: "/#features",
     },
     {
-        title: "Pobierz"
+        title: "Pobierz",
+        href: "/#getit",
     },
 ]
 
@@ -73,15 +79,16 @@ const MobileNavBar = () => (
             <MenuList borderWidth="0">
                 {NAV_ITEMS.map(item => (<MobileNavBarItem key={item.title} {...item} />))}
 
-                <MobileNavBarItem display={{ base: "flex", md: "none" }} title="Zaloguj się przez Discord" href="#" />
+                <MobileNavBarItem display={{ base: "flex", md: "none" }} title="Zaloguj się przez Discord"
+                    href={LOGIN_DISCORD_URL} />
             </MenuList>
         </Menu>
 
         <Logo
-         marginLeft={{ base: "0", md: "1.5rem" }}
-         marginRight={{ base: "2.5rem", md: "0" }}
-         textAlign="center"
-         width={{base: "100%", md: "fit-content"}} />
+            marginLeft={{ base: "0", md: "1.5rem" }}
+            marginRight={{ base: "2.5rem", md: "0" }}
+            textAlign="center"
+            width={{ base: "100%", md: "fit-content" }} />
 
         <Spacer />
 
@@ -101,6 +108,7 @@ const Logo = (props: LinkProps) => (
     <Link
         width="11rem"
         fontWeight="600"
+        href="/#"
 
         isTruncated
         {...props}
@@ -110,9 +118,11 @@ const Logo = (props: LinkProps) => (
 )
 
 const LoginWithDiscord = (props: ButtonProps) => (
-    <Button variant="discordLogin" marginLeft="3rem" {...props}>
-        ZALOGUJ SIĘ PRZEZ DISCORD
-    </Button>
+    <Link href={LOGIN_DISCORD_URL}>
+        <Button variant="discordLogin" marginLeft="3rem" {...props}>
+            ZALOGUJ SIĘ PRZEZ DISCORD
+        </Button>
+    </Link>
 )
 
 export default NavBar;
