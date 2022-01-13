@@ -9,6 +9,7 @@ import { Image as NextImage, OutlinedImage } from "../components/image";
 import NavBar from "../components/navbar";
 import Footer from "../components/footer";
 import { BrowserView, isMobile } from "react-device-detect";
+import { useState } from "react";
 
 const Home: NextPage = () => (
   <>
@@ -179,47 +180,89 @@ const ZaletsEntry: React.FC<ZaletsEntryProps> = ({ title, description, color }) 
   </Box>
 )
 
-const Features = () => (
-  <Section
-    title="Funkcje"
-    description="Scyzoryk, ale do Minecrafta."
-  >
-    <SectionCard minHeight="18rem">
-      <Flex direction={{ base: "column", lg: "row" }}>
-        <FeatureButton title="Klikanie" active={true} />
-        <FeatureButton title="Konfiguracja" />
-        <FeatureButton title="Kopanie" pro={true} />
-        <FeatureButton title="Dodatkowa essa" pro={true} />
-      </Flex>
+type FeatureInfo = {
+  title: string;
+  pro: boolean;
+  image: string;
+}
 
-      <FeaturePreview />
-    </SectionCard>
-  </Section>
-)
+const FEATURES: Array<FeatureInfo> = [
+  {
+    title: "Klikanie",
+    pro: false,
+    image: "/feature_preview_sample_text.png",
+  },
+  {
+    title: "Konfiguracja",
+    pro: false,
+    image: "/feature_preview_sample_text2.png",
+  },
+  {
+    title: "Kopanie",
+    pro: true,
+    image: "/feature_preview_sample_text3.png",
+  },
+  {
+    title: "Dodatkowa essa",
+    pro: true,
+    image: "/feature_preview_sample_text4.png",
+  },
+]
+
+const Features = () => {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  return (
+    <Section
+      title="Funkcje"
+      description="Scyzoryk, ale do Minecrafta."
+    >
+      <SectionCard minHeight="18rem">
+        <Flex direction={{ base: "column", lg: "row" }}>
+          {FEATURES.map((e, index) =>
+            <FeatureButton
+              key={e.title}
+              info={e}
+              active={index == selectedIndex}
+              onClick={() => setSelectedIndex(index)}
+            />
+          )}
+        </Flex>
+
+        <FeaturePreview {...FEATURES[selectedIndex]} />
+      </SectionCard>
+    </Section>
+  )
+}
 
 type FeatureButtonProps = {
-  title: String;
-  active?: boolean;
-  pro?: boolean;
-};
+  info: FeatureInfo;
+  active: boolean;
+  onClick: () => void;
+}
 
-const FeatureButton = ({ title, active, pro }: FeatureButtonProps) => (
-  <Box
-    backgroundColor={active ? "#94B3FD" : "transparent"}
-    padding="0 1.375rem"
+const FeatureButton = ({ info, active, onClick }: FeatureButtonProps) => (
+  <Button
+    backgroundColor={active ? (info.pro ? "#000" : "#94B3FD") : "transparent"}
+    variant="ghost"
+    padding="0 1.35rem"
+    margin="0 0.25rem"
     borderRadius="0.5rem"
     display="flex"
     alignItems="center"
     height="2.75rem"
+    _hover={{
+    }}
+    onClick={onClick}
   >
-    <Text fontSize={{ base: "0.9rem", md: 20 }} fontWeight={600}>{title}</Text>
-    {pro ? <ProTag marginLeft="1rem" /> : null}
-  </Box>
+    <Text fontSize={{ base: "0.9rem", md: 20 }} fontWeight={600}>{info.title}</Text>
+    {info.pro ? <ProTag marginLeft="1rem" /> : null}
+  </Button>
 )
 
-const FeaturePreview = () => (
+const FeaturePreview = (info: FeatureInfo) => (
   <Box marginTop={{ base: "1.125rem", lg: "3.125rem" }}>
-    <OutlinedImage src="/feature_preview_sample_text.png" width="879px" height="556px" />
+    <OutlinedImage src={info.image} width="879px" height="556px" />
   </Box>
 )
 

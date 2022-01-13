@@ -61,7 +61,10 @@ const theme = extendTheme({
       variants: {
         "ghost": {
           _focus: {
-            boxShadow: "0px 4px 0px #0000001C",
+            boxShadow: "0",
+          },
+          _hover: {
+            transform: "translateY(-0.1em)"
           },
         },
         "primary": {
