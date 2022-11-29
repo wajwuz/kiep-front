@@ -44,9 +44,9 @@ const Hero = () => (
     textAlign={{ base: "center", xl: "left" }}
     justifyContent={"center"}
     margin="0 3rem 10rem 3rem"
-    paddingTop="25vh"
-    minHeight="30rem"
-    height="calc(50vh)"
+    paddingTop="30vh"
+    minHeight="20rem"
+    height="calc(30vh)"
   >
     <Box marginBottom={10} zIndex="1">
       <Box marginBottom="0.875rem" marginRight={{ base: "0", xl: "5rem" }}>
