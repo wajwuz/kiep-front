@@ -30,8 +30,6 @@ const Home: NextPage = () => (
 
           <AvailablePlans />
 
-          <BetaStage />
-
           <Footer />
         </VStack>
       </Center>
@@ -270,38 +268,6 @@ const Plan = ({ name, price, pro = false, children }: PlanProps) => (
       <Button margin="0 1.5rem" size="lg" colorScheme={pro ? "pink" : "black"}>Więcej informacji</Button>
     </Flex>
   </Box>
-);
-
-const BetaStage = () => (
-  <Section id="beta" title="Otwarte beta testy">
-    <Text>
-      Przed wprowadzeniem w pełni naszego rozwiązania na rynek chcemy je najpierw dobrze przetestować,
-      aby najbardziej wymagający klienci mieli pewność, że nic ich i nas nie zaskoczy.
-      Z tej okazji przygotowaliśmy dla małych i średnich serwerów możliwość uczestniczenia w
-      otwartych beta testach zupełnie za darmo. Z powodu, że w ramach testów usługa będzie darmowa,
-      nie możemy sobie pozwolić na serwery najwyższej jakości. Może to oznaczać mniejszą stabilność
-      usług w trakcie poważniejszych ataków.
-      Po upewnieniu się, że zainteresowanie goxy jest wystarczające, a rozwiązania do monitorowania,
-      wdrażania, optymalizowania i ochrony są dobrej jakości - nasza infrastruktura zostanie ulepszona,
-      a usługa stanie się oficjalnie otwarta dla wszystkich.
-    </Text>
-
-    <Box
-      borderRadius="30"
-      padding="2.5rem 3.125rem"
-      backgroundColor="red"
-      width="100%"
-      marginTop="3.75rem"
-      background="linear-gradient(87.57deg, #F4CAFC 20.94%, #C6DDFF 61.89%, #D096FE 117.21%)"
-      gap="1.6rem"
-    >
-      <Heading size="lg">
-        Goxy jest w fazie testów.<br />
-        Jesteś chętny wypróbować?
-      </Heading>
-      <Button marginTop="1.6rem" size="lg" colorScheme="black">Skontaktuj się z nami</Button>
-    </Box>
-  </Section >
 );
 
 export default Home
