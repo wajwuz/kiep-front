@@ -1,21 +1,19 @@
 import * as CSS from "csstype"
-import { Box, Button, Flex, Text, Heading, VStack, HStack, Spacer, SimpleGrid, Center, Image } from '@chakra-ui/react'
+import {
+  Box, Button, Flex, Text, Heading, VStack, HStack, Spacer, SimpleGrid,
+  Center, Image, Tabs, TabList, Tab, TabPanels, TabPanel, Link
+} from '@chakra-ui/react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { Icon } from '@iconify/react';
-import { Section, SectionCard } from "../components/section";
-import ProTag from "../components/pro_tag";
-import { OutlinedImage } from "../components/image";
+import Section from "../components/section";
 import NavBar from "../components/navbar";
 import Footer from "../components/footer";
-import { isMobile } from "react-device-detect";
-import { useState } from "react";
 
 const Home: NextPage = () => (
   <>
     <Head>
-      <title>Strona Główna - BuzkaaClicker.pl</title>
-      <meta name="description" content="Strona główna" />
+      <title>goxy.pl</title>
+      <meta name="description" content="Goxy - Twoje dedykowane rozwiązanie proxy" />
       <link rel="icon" href="/static/favicon.ico" />
     </Head>
 
@@ -23,16 +21,16 @@ const Home: NextPage = () => (
 
     <main>
       <Center>
-        <VStack spacing={{ base: "4.75rem", lg: "8.75rem" }} maxWidth="68.688rem" margin="0 2rem">
+        <VStack spacing={{ base: "4.75rem", xl: "8.75rem" }} maxWidth="71rem" margin="0 2rem">
           <Hero />
-
-          <Statistics />
 
           <Zalets />
 
           <Features />
 
-          <Downloads />
+          <AvailablePlans />
+
+          <BetaStage />
 
           <Footer />
         </VStack>
@@ -41,299 +39,270 @@ const Home: NextPage = () => (
   </>
 )
 
-// Play hero video background only if page is viewed on desktop computer.
-// Do not waste mobile users' transfers.
-const HeroVideo = () => {
-  if (isMobile) {
-    return <Box />
-  } else {
-    return <video src="/static/fragalnia.mp4" autoPlay muted loop playsInline style={{
-      position: "absolute",
-      top: 0,
-      left: 0,
-      width: "100vw",
-      height: "calc(100vh + 10rem)",
-      objectFit: "cover",
-    }} />
-  }
-}
-
 const Hero = () => (
   <Flex
     align="center"
     direction={{ base: "column", xl: "row" }}
     textAlign={{ base: "center", xl: "left" }}
     justifyContent={"center"}
-    margin="0 3rem 0 3rem"
-    paddingBottom="8rem"
-    minHeight="calc(100vh + 1rem)"
+    margin="0 3rem 10rem 3rem"
+    paddingTop="25vh"
+    minHeight="30rem"
+    height="calc(50vh)"
   >
-    <HeroVideo />
-    <Box
-      width="100vw"
-      height="calc(100vh + 10rem)"
-      position="absolute"
-      top="0"
-      left="0"
-      background="linear-gradient(180deg, #151517 -13.41%, rgba(21, 21, 23, 0) 48.57%, #151517 90.98%),
-        linear-gradient(0deg, rgba(21, 21, 23, 0.95), rgba(21, 21, 23, 0.95))"
-    />
-    <Box maxWidth={600} marginBottom={10} zIndex="1">
-      <Box marginBottom={5} maxWidth={500} marginRight={{ base: "0", xl: "5rem" }}>
+    <Box marginBottom={10} zIndex="1">
+      <Box marginBottom="0.875rem" marginRight={{ base: "0", xl: "5rem" }}>
         <Heading fontSize={{ base: "2rem", md: "2.6rem" }}>
-          Przyjazny autoclicker,<br />
-          tworzony z myślą o tobie
+          Wymień swoje proxy na dedykowane rozwiązanie{" "}
+          <Text
+            as="span"
+            background="linear-gradient(94.3deg, #D091DA 0%, #AD00FF 200.63%)"
+            backgroundClip="text"
+          >
+            goxy
+          </Text>
         </Heading>
 
         <Text variant="secondary" marginTop={2} marginBottom={7}>
-          Mega - od zawsze, na zawsze
+          Oferujemy wszystkie podstawowe funkcjonalności, które zamienią Twój
+          aktualny serwer proxy dając Ci dodatkowe funkcjonalności takie jak system logowania,
+          automatyczne logowanie premium, ochronę przed botami czy ochronę przed atakami DDoS.
         </Text>
       </Box>
-
-      <Button width={180}>Zdobądź teraz</Button>
     </Box>
 
     <Image
-      src="/static/home_cropped.png" alt="Strona Główna BuzkaaClickera"
-      width="420px"
-      border="1px solid rgba(255, 255, 255, 0.05)"
-      boxShadow="10px 10px 0px rgba(255, 255, 255, 0.02)"
+      src="/static/logo.svg" alt="Strona Główna goxy"
+      maxWidth="420px"
       zIndex="10"
-      display="block"
     />
   </Flex>
-)
-
-const Statistics = () => (
-  <VStack
-    id="statistics"
-    spacing="2rem"
-  >
-    <Heading>Statystyki</Heading>
-
-    <Flex
-      align="center"
-      direction={{ base: "column", md: "row" }}
-      textAlign={{ base: "center", md: "left" }}
-      justifyContent={"center"}
-      margin="3rem"
-    >
-      <StatisticEntry textColor="#FFB6B6" />
-      <StatisticEntry textColor="#B6FFE5" />
-      <StatisticEntry textColor="#B6D3FF" />
-    </Flex>
-  </VStack>
 )
 
 const StatisticEntry = ({ textColor }: { textColor: CSS.Property.Color; }) => (
   <Box align="center" m="1rem 3rem">
     <Text fontSize="2.25rem"
       fontWeight={800}
-      backgroundImage={"linear-gradient(110deg, " + textColor + ", #FFFFFF)"}
+      backgroundImage={"linear-gradient(110deg, " + textColor + ", #AD00FF)"}
       backgroundClip="text">
       75683
     </Text>
-    <Text fontSize="18px" color="#DFDFDF">osób uruchomiło</Text>
-    <Text fontWeight={700} color={"#fff"}>BuzkaaClicker</Text>
-    <Text fontSize="18px" color="#DFDFDF">w ostatnich 30 dniach</Text>
+    <Text fontSize="18px">osób uruchomiło</Text>
+    <Text fontWeight={700} color={"#000"}>goxy</Text>
+    <Text fontSize="18px">w ostatnich 30 dniach</Text>
   </Box>
 );
 
 const Zalets = () => (
   <Section
     id="zalets"
-    title="Zalety, które pokochasz"
-    description="Tylko zalety, bo jesteśmy zajebiści."
+    title="Co sprawia, że zakochasz się w goxy?"
   >
     <SimpleGrid
-      columns={{ base: 1, lg: 2 }}
+      columns={{ base: 1, lg: 3 }}
       spacing={12}
     >
-      <ZaletsEntry color="#312323" title="Kąfiguracja" description={"W naszym autoclickerze możesz przypisać " +
-        "klawisz na wiele s)posobów. Dodatkowo działa tylko w oknie gry! Koniec z przypadkowymi kliknięciami."} />
+      <ZaletsEntry
+        icon="rocket"
+        title="Stabilność"
+        description={"Goxy jest zaprojektowane tak żeby zużywało jak najmniej możliwych zasobów. " +
+          "Nasze serwery są dobrane w taki sposób żeby uzyskać jak największą wydajność. " +
+          "Wszystko po to żeby Twój serwer był jak najbardziej stabilny!."} />
 
-      <ZaletsEntry color="#233123" title="Kąfiguracja" description={"W naszym autoclickerze możesz przypisać " +
-        "klawisz na wiele sposobów. Dodatkowo działa tylko w oknie gry! Koniec z przypadkowymi kliknięciami."} />
+      <ZaletsEntry
+        icon="shield"
+        title="Bezpieczeństwo"
+        description={"Hasła wszystkich zarejestrowanych graczy za pomocą goxy są hashowane, " +
+          "a dostęp do naszej bazy danych jest zabezpieczony. Korzystajac z goxy ukrywasz prawdziwe IP serwera, " +
+          "a nawet jeśli ktoś próbuje się połączyć z prawdziwym IP Twojego serwera to nie jest na niego wpuszczony."} />
 
-      <ZaletsEntry color="#23202D" title="Kąfiguracja" description={"W naszym autoclickerze możesz przypisać " +
-        "klawisz na wiele sposobów. Dodatkowo działa tylko w oknie gry! Koniec z przypadkowymi kliknięciami."} />
+      <ZaletsEntry
+        icon="thumb"
+        title="Prostota"
+        description={"Wszystkie funkcje oferowane przez goxy zostały zaprojektowane tak " +
+          "żeby dało się je wyłączyć kiedy tego potrzebujesz. Wszystko to czego potrzebujesz ustawisz w naszym panelu " +
+          "bez żadnych komplikacji, a jeśli masz taką potrzebę, możesz konfigurować swój serwer za pomocą poleceń w grze."} />
     </SimpleGrid>
   </Section>
 )
 
-type ZaletsEntryProps = { title: string; description: string; color: CSS.Property.Color; }
+type ZaletsEntryProps = { title: string; description: string; icon: string; }
 
-const ZaletsEntry: React.FC<ZaletsEntryProps> = ({ title, description, color }) => (
-  <Box
-    backgroundColor={color}
-    padding={{ base: "2rem 2rem", lg: "50px" }}
-    borderRadius={"18px"}
-    align={"start"}
-    justifyContent={"start"}
-  >
-    <HStack align={"start"}>
-      <Icon icon="ant-design:smile-outlined" width="120px" height="50px" />
-      <Spacer />
-      <VStack align={"start"} marginLeft={"50px"}>
-        <Heading fontSize={"2xl"}>{title}</Heading>
-        <Text fontSize={"16px"} color={"#AAAAAA"}>{description}</Text>
-      </VStack>
-    </HStack>
-  </Box>
+const ZaletsEntry: React.FC<ZaletsEntryProps> = ({ title, description, icon }) => (
+  <Flex flexDirection="column" gap="15px">
+    <Flex backgroundColor="#FCECFF" width="3.375rem" height="3.375rem" borderRadius="10">
+      <Image src={"/static/landing/" + icon + ".svg"} alt="Strona Główna goxy" margin="auto" />
+    </Flex>
+
+    <Heading size="md">{title}</Heading>
+    <Text>{description}</Text>
+  </Flex>
 )
 
-type FeatureInfo = {
-  title: string;
-  pro: boolean;
-  image: string;
-}
-
-const FEATURES: Array<FeatureInfo> = [
-  {
-    title: "Klikanie",
-    pro: false,
-    image: "/static/feature_preview_sample_text.png",
-  },
-  {
-    title: "Konfiguracja",
-    pro: false,
-    image: "/static/feature_preview_sample_text2.png",
-  },
-  {
-    title: "Kopanie",
-    pro: true,
-    image: "/static/feature_preview_sample_text3.png",
-  },
-  {
-    title: "Dodatkowa essa",
-    pro: true,
-    image: "/static/feature_preview_sample_text4.png",
-  },
-]
-
 const Features = () => {
-  const [selectedIndex, setSelectedIndex] = useState(0);
-
   return (
     <Section
       id="features"
       title="Funkcje"
-      description="Scyzoryk, ale do Minecrafta."
     >
-      <SectionCard minHeight="18rem">
-        <Flex direction={{ base: "column", lg: "row" }}>
-          {FEATURES.map((e, index) =>
-            <FeatureButton
-              key={e.title}
-              info={e}
-              active={index == selectedIndex}
-              onClick={() => setSelectedIndex(index)}
-            />
-          )}
-        </Flex>
+      <Tabs variant="line" width="100%" isFitted>
+        <TabList padding="0 4.5rem">
+          <Tab>Anty bot</Tab>
+          <Tab>Logowanie</Tab>
+          <Tab>Naprawa skinów</Tab>
+          <Tab>Load balancer</Tab>
+          <Tab>Anty DDoS</Tab>
+        </TabList>
 
-        <FeaturePreview {...FEATURES[selectedIndex]} />
-      </SectionCard>
+        <TabPanels>
+          <TabPanel>
+            <Feature />
+          </TabPanel>
+          <TabPanel>
+            <Feature />
+          </TabPanel>
+          <TabPanel>
+            <Feature />
+          </TabPanel>
+          <TabPanel>
+            <Feature />
+          </TabPanel>
+          <TabPanel>
+            <Feature />
+          </TabPanel>
+        </TabPanels>
+      </Tabs>
     </Section>
   )
 }
 
-type FeatureButtonProps = {
-  info: FeatureInfo;
-  active: boolean;
-  onClick: () => void;
-}
-
-const FeatureButton = ({ info, active, onClick }: FeatureButtonProps) => (
-  <Button
-    backgroundColor={active ? (info.pro ? "#000" : "#94B3FD") : "transparent"}
-    variant="ghost"
-    padding="0 1.35rem"
-    margin="0 0.25rem"
-    borderRadius="0.5rem"
-    display="flex"
-    alignItems="center"
-    height="2.75rem"
-    _hover={{
-    }}
-    onClick={onClick}
-  >
-    <Text fontSize={{ base: "0.9rem", md: 20 }} fontWeight={600}>{info.title}</Text>
-    {info.pro ? <ProTag marginLeft="1rem" /> : null}
-  </Button>
-)
-
-const FeaturePreview = (info: FeatureInfo) => (
-  <Box marginTop={{ base: "1.125rem", lg: "3.125rem" }}>
-    <OutlinedImage src={info.image} alt={"Podgląd funkcji " + info.title} width="879px" height="556px" />
-  </Box>
-)
-
-const Downloads = () => (
-  <Section
-    id="getit"
-    title="Zdobądź"
-    description="Aktualna wersja v2115"
+const Feature = () => (
+  <Flex
+    marginTop={{ base: "1.125rem", lg: "3.125rem" }}
+    flexDirection={{ base: "column", md: "row" }}
+    alignItems={{ base: "center", md: "start" }}
+    gap="4.375rem"
   >
     <Flex
-      align="center"
-      direction={{ base: "column", lg: "row" }}
-      textAlign={{ base: "center", lg: "left" }}
-      gap={{ base: "1rem", lg: "5rem" }}
-      marginBottom="3.125rem"
+      flexShrink="0"
+      borderRadius="25"
+      borderColor="#CDC4CC"
+      borderWidth="1px"
+      overflow="clip"
+      width="40%"
+      height="80%"
+      backgroundColor="#FCECFF"
+      padding="2rem 2rem 0 0"
     >
-      <Image src="/static/download_preview.svg" alt="Podgląd programu" width="638px" height="368px" />
-      <VStack spacing="2rem" alignItems={{ base: "center", lg: "start" }}>
-        <DownloadVersion
-          title="BuzkaaClicker"
-          subtitle="Windows Vista z Service Pack 2 oraz nowsze"
-          getText="Pobierz teraz" />
-        <DownloadVersion
-          title={<DownloadBuzkaaClickerProLogo />}
-          subtitle="Wersja premium dla bardziej wymagających"
-          getText="kup tera" />
-      </VStack>
+      <Image
+        src="/static/landing/vcn.png" alt="Wygląd systemu Anty bot w grze - obrazek captcha."
+        objectFit="cover"
+      />
     </Flex>
 
-    <DownloadTutorial />
-  </Section >
-)
-
-const DownloadBuzkaaClickerProLogo = () => (
-  <Flex justifyContent={{ base: "center", lg: "start" }} alignItems="center" gap="0.6rem">
-    <p>BuzkaaClicker</p><ProTag />
+    <Box>
+      <Heading size="md">Weryfikacja odbywa się po stronie proxy</Heading>
+      <br />
+      <Text>Weryfikacja chroniąca przed botami odbywa się po wejściu gracza na serwer w ramach, której gracz może zostać poproszony o przepisanie kodu captcha z obrazka wyświetlonego w grze. </Text>
+      <br />
+      <Text>Nic skomplikowanego, a dzięki temu żaden bot nie przedostanie się na serwer. </Text>
+    </Box>
   </Flex>
 )
 
-type DownloadVersionProps = {
-  title: React.ReactNode | String;
-  subtitle: String;
-  getText: String;
+const AvailablePlans = () => (
+  <Section
+    id="plans"
+    title="Cennik"
+  >
+    <Flex
+      flexDirection={{ base: "column", xl: "row" }}
+      alignItems="center"
+      width="100%"
+      justifyContent="space-between"
+    >
+      <Plan name="Darmowy*" price={0}>
+        Pakiet dla początkujących serwerów dla rozwinięcia skrzydeł bez potrzeby wydawania dużych pieniędzy.<br/>
+        <br/>
+        *Opłata instalacyjna 10 PLN.
+      </Plan>
+      <Plan name="Podstawowy" price={30}>
+        Podstawowy pakiet dla serwerów, które potrafią się utrzymać ze swoich zarobków i mają już zbudowane grono graczy.
+      </Plan>
+      <Plan name="Profesjonalny" price={80} pro>
+        Pakiet dla początkujących sieci i średnich serwerów. Pozwala bez problemów konkurować z innymi serwerami.
+      </Plan>
+    </Flex>
+
+    <Flex flexDirection="column" textAlign="center" marginTop="3.75rem" gap="1rem">
+      <Heading>Dostępne plany ci nie wystarczają?</Heading>
+      <Text>Napisz do nas, a przygotujemy pakiet spersonalizowany specjalnie dla twojego serwera!</Text>
+      <Button size="lg" margin="auto" colorScheme="black">Skontaktuj się z nami</Button>
+    </Flex>
+  </Section>
+);
+
+type PlanProps = {
+  name: string,
+  price: number,
+  pro?: boolean,
+  children: React.ReactNode,
 };
 
-const DownloadVersion = ({ title, subtitle, getText }: DownloadVersionProps) => (
-  <Box>
-    <Heading fontSize={"1.5rem"}>{title}</Heading>
-    <Text variant="secondary" marginTop="0.25rem">{subtitle}</Text>
-    <Button marginTop="1rem" width="12.75rem">{getText}</Button>
+const Plan = ({ name, price, pro = false, children }: PlanProps) => (
+  <Box
+    width="21rem"
+    height="24.25rem"
+    borderRadius="25"
+    borderWidth="1px"
+    borderColor={pro ? "#C684D0" : "#CDC4CC"}
+    padding="2.5rem"
+    marginBottom="1rem"
+  >
+    <Flex flexDirection="column" gap="0.875rem" height="100%">
+      <Heading size="md">{name}</Heading>
+      <Flex alignItems="end" gap="0.5rem">
+        <Heading size="xl">{price} PLN</Heading>
+        <Heading size="md" fontWeight="normal" lineHeight="180%">/msc</Heading>
+      </Flex>
+      <Text>{children}</Text>
+      <Spacer />
+      <Button margin="0 1.5rem" size="lg" colorScheme={pro ? "pink" : "black"}>Więcej informacji</Button>
+    </Flex>
   </Box>
-)
+);
 
-const DownloadTutorial = () => (
-  <>
-    <Heading
-      fontSize='1.5rem'
-      marginBottom="2rem"
-      textAlign={{ base: "center", lg: "start" }}
+const BetaStage = () => (
+  <Section id="beta" title="Otwarte beta testy">
+    <Text>
+      Przed wprowadzeniem w pełni naszego rozwiązania na rynek chcemy je najpierw dobrze przetestować,
+      aby najbardziej wymagający klienci mieli pewność, że nic ich i nas nie zaskoczy.
+      Z tej okazji przygotowaliśmy dla małych i średnich serwerów możliwość uczestniczenia w
+      otwartych beta testach zupełnie za darmo. Z powodu, że w ramach testów usługa będzie darmowa,
+      nie możemy sobie pozwolić na serwery najwyższej jakości. Może to oznaczać mniejszą stabilność
+      usług w trakcie poważniejszych ataków.
+      Po upewnieniu się, że zainteresowanie goxy jest wystarczające, a rozwiązania do monitorowania,
+      wdrażania, optymalizowania i ochrony są dobrej jakości - nasza infrastruktura zostanie ulepszona,
+      a usługa stanie się oficjalnie otwarta dla wszystkich.
+    </Text>
+
+    <Box
+      borderRadius="30"
+      padding="2.5rem 3.125rem"
+      backgroundColor="red"
+      width="100%"
+      marginTop="3.75rem"
+      background="linear-gradient(87.57deg, #F4CAFC 20.94%, #C6DDFF 61.89%, #D096FE 117.21%)"
+      gap="1.6rem"
     >
-      Poradnik instalacji w formie filmu
-    </Heading>
-
-    <SectionCard minHeight="1rem">
-      <Image src="/static/download_tutorial_mock.png" alt="Wideo poradnik zaślepka" width="999" height="588" />
-    </SectionCard>
-  </>
-)
+      <Heading size="lg">
+        Goxy jest w fazie testów.<br />
+        Jesteś chętny wypróbować?
+      </Heading>
+      <Button marginTop="1.6rem" size="lg" colorScheme="black">Skontaktuj się z nami</Button>
+    </Box>
+  </Section >
+);
 
 export default Home
 

@@ -1,22 +1,16 @@
-import { Flex, Heading, Link, SimpleGrid, Spacer, Text, VStack } from "@chakra-ui/react";
+import { Box, Flex, Heading, Link, SimpleGrid, Spacer, Text, VStack } from "@chakra-ui/react";
 
 const COLUMNS: ColumnProps[] = [
     {
-        title: "BuzkaaClicker",
-        links: [
-            {
-                title: "Zalety",
-                href: "/#zalets",
-            },
-            {
-                title: "Funkcje",
-                href: "/#features",
-            },
-            {
-                title: "Zdobądź",
-                href: "/#getit",
-            },
-        ],
+        title: "Goxy",
+        links: [],
+        text: `
+            ul. św Jana 11/4
+            Katowice 40-012
+            NIP: 5030087161
+            REGON: 522902017
+            biuro@goxy.pl
+        `,
     },
     {
         title: "Regulaminy",
@@ -32,11 +26,28 @@ const COLUMNS: ColumnProps[] = [
         ],
     },
     {
-        title: "Kontakt",
+        title: "Pomoc",
         links: [
             {
-                title: "Milosz@koczura.pl",
-                href: "mailto:Milosz@koczura.pl",
+                title: "Dokumentacja",
+                href: "https://docs.goxy.pl/",
+            },
+            {
+                title: "Serwer Discord",
+                href: "https://discord.com/invite/3d8vU2Dsrb",
+            },
+        ],
+    },
+    {
+        title: "Dla programisty",
+        links: [
+            {
+                title: "Repozytorium maven",
+                href: "https://repo.goxy.pl/",
+            },
+            {
+                title: "Gitlab",
+                href: "https://gitlab.com/goxy.pl",
             },
         ],
     },
@@ -44,8 +55,8 @@ const COLUMNS: ColumnProps[] = [
 
 const Footer = () => (
     <VStack width="100%">
-        <SimpleGrid
-            columns={{ base: 1, sm: 2, md: 3 }}
+        {/* <SimpleGrid
+            columns={{ base: 1, sm: 2, md: 3, lg: 4 }}
             spacingY="2rem"
             width="100%"
             paddingBottom="2rem"
@@ -55,7 +66,15 @@ const Footer = () => (
                     <Column key={column.title} {...column} />
                 ))
             }
-        </SimpleGrid>
+        </SimpleGrid> */}
+
+        <Flex width="100%" justifyContent="space-between">
+            {
+                COLUMNS.map(column => (
+                    <Column key={column.title} {...column} />
+                ))
+            }
+        </Flex>
 
         <LicenseAndAuthors />
     </VStack>
@@ -64,6 +83,7 @@ const Footer = () => (
 type ColumnProps = {
     title: string;
     links: FooterLink[];
+    text?: string,
 }
 
 type FooterLink = {
@@ -71,24 +91,33 @@ type FooterLink = {
     href: string;
 }
 
-const Column = ({ title, links }: ColumnProps) => (
+const Column = ({ title, links, text }: ColumnProps) => (
     <VStack alignItems="start">
-        <Heading fontSize="1.5rem">{title}</Heading>
+        <Heading fontSize="1.5rem" marginRight="1rem">{title}</Heading>
         {links.map(link => (
-            <Link key={link.title} href={link.href} color="#aaaaaa" fontSize="1.25rem">{link.title}</Link>
+            <Link key={link.title} href={link.href} color="#333" fontSize="1.25rem">{link.title}</Link>
         ))}
+
+        {text && <Text paddingBottom="1rem">
+            {text.split("\n").map((line, index) => <Text key={index}>{line}</Text>)}
+        </Text>}
     </VStack>
 )
 
 const LicenseAndAuthors = () => (
-    <Flex
-        width="100%"
-        paddingBottom="3rem"
-        direction={{ base: "column", xl: "row" }}
-    >
-        <Text color="#555555">© 2022 BuzkaaClicker. Wszelkie prawa zastrzeżone</Text>
-        <Spacer />
-        <Text color="#555555">Wykonanie: makin, Buzkaa, netsu (design), nat (pomoc przy OpenBSD).</Text>
+    <Flex width="100%" direction="column" paddingBottom="3rem">
+        <Flex
+            width="100%"
+            direction={{ base: "column", xl: "row" }}
+        >
+            <Text color="#555555">© 2022 Goxy. Wszelkie prawa zastrzeżone</Text>
+            <Spacer />
+            <Text color="#555555">
+                Strona wykonana przez:{" "}
+                <Link color="purple" href="https://pixelsmp.pl/" isExternal>netsu</Link> (design),{" "}
+                <Link color="purple" href="https://www.makin.cc/" isExternal>www_makin_cc</Link> (zaprogramowanie)
+            </Text>
+        </Flex>
     </Flex>
 )
 

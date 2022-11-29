@@ -5,7 +5,8 @@ import {
     Menu, MenuButton, MenuItem, MenuList, Spacer,
 } from "@chakra-ui/react";
 
-const LOGIN_DISCORD_URL = "/api/auth/discord"
+const PANEL_URL = "https://panel.goxy.pl/"
+const DOCS_URL = "https://docs.goxy.pl/"
 
 type NavItem = {
     title: string;
@@ -15,10 +16,6 @@ type NavItem = {
 
 const NAV_ITEMS: Array<NavItem> = [
     {
-        title: "Statystyki",
-        href: "/#statistics",
-    },
-    {
         title: "Zalety",
         href: "/#zalets",
     },
@@ -27,8 +24,8 @@ const NAV_ITEMS: Array<NavItem> = [
         href: "/#features",
     },
     {
-        title: "Pobierz",
-        href: "/#getit",
+        title: "Cennik",
+        href: "/#plans",
     },
 ]
 
@@ -51,7 +48,7 @@ const DesktopNavBar = () => (
             <Link
                 key={item.title}
                 fontWeight="600"
-                color="#aaa"
+                color="#000"
                 marginLeft="3.625rem"
                 textTransform="uppercase"
                 href={item.href}
@@ -62,7 +59,7 @@ const DesktopNavBar = () => (
 
         <Spacer />
 
-        <LoginWithDiscord />
+        <Important />
     </Flex>
 )
 
@@ -79,8 +76,11 @@ const MobileNavBar = () => (
             <MenuList borderWidth="0">
                 {NAV_ITEMS.map(item => (<MobileNavBarItem key={item.title} {...item} />))}
 
-                <MobileNavBarItem display={{ base: "flex", md: "none" }} title="Zaloguj się przez Discord"
-                    href={LOGIN_DISCORD_URL} />
+                <MobileNavBarItem display={{ base: "flex", md: "none" }} title="Dokumentacja"
+                    href={DOCS_URL} />
+
+                <MobileNavBarItem display={{ base: "flex", md: "none" }} title="Przejdź do panelu"
+                    href={PANEL_URL} />
             </MenuList>
         </Menu>
 
@@ -92,12 +92,12 @@ const MobileNavBar = () => (
 
         <Spacer />
 
-        <LoginWithDiscord display={{ base: "none", md: "flex" }} />
+        <Important display={{ base: "none", md: "flex" }} />
     </Box>
 )
 
 const MobileNavBarItem = (props: NavItem & LayoutProps) => (
-    <Link color="#aaa" href={props.href} {...props}>
+    <Link href={props.href} {...props}>
         <MenuItem key={props.title}>
             {props.title}
         </MenuItem>
@@ -108,19 +108,35 @@ const Logo = (props: LinkProps) => (
     <Link
         width="11rem"
         fontWeight="600"
+        color="#000"
         href="/#"
 
         isTruncated
         {...props}
     >
-        BUZKAACLICKER
+        GOXY
     </Link>
 )
 
-const LoginWithDiscord = (props: ButtonProps) => (
-    <Link href={LOGIN_DISCORD_URL}>
-        <Button variant="discordLogin" marginLeft="3rem" {...props}>
-            ZALOGUJ SIĘ PRZEZ DISCORD
+const Important = (props: ButtonProps) => (
+    <>
+        <Docs {...props} />
+        <Panel {...props} />
+    </>
+);
+
+const Docs = (props: ButtonProps) => (
+    <Link href={DOCS_URL}>
+        <Button variant="ghost" marginLeft="3rem" {...props}>
+            DOCS
+        </Button>
+    </Link>
+)
+
+const Panel = (props: ButtonProps) => (
+    <Link href={PANEL_URL}>
+        <Button colorScheme="pink" marginLeft="3rem" {...props}>
+            PANEL
         </Button>
     </Link>
 )
