@@ -128,7 +128,7 @@ const Important = (props: ButtonProps) => (
 const Docs = (props: ButtonProps) => (
     <Link href={DOCS_URL}>
         <Button variant="ghost" marginLeft="3rem" {...props}>
-            DOCS
+            Dokumentacja
         </Button>
     </Link>
 )
@@ -136,7 +136,7 @@ const Docs = (props: ButtonProps) => (
 const Panel = (props: ButtonProps) => (
     <Link href={PANEL_URL}>
         <Button colorScheme="pink" marginLeft="3rem" {...props}>
-            PANEL
+            Panel
         </Button>
     </Link>
 )

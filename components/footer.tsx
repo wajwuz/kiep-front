@@ -95,7 +95,7 @@ const Column = ({ title, links, text }: ColumnProps) => (
     <VStack alignItems="start">
         <Heading fontSize="1.5rem" marginRight="1rem">{title}</Heading>
         {links.map(link => (
-            <Link key={link.title} href={link.href} color="#333" fontSize="1.25rem">{link.title}</Link>
+            <Link key={link.title} href={link.href} color="#333" fontSize="1.25rem" isExternal>{link.title}</Link>
         ))}
 
         {text && <Text paddingBottom="1rem">

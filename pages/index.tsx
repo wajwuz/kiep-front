@@ -250,7 +250,7 @@ type PlanProps = {
 const Plan = ({ name, price, pro = false, children }: PlanProps) => (
   <Box
     width="21rem"
-    height="24.25rem"
+    height="25.25rem"
     borderRadius="25"
     borderWidth="1px"
     borderColor={pro ? "#C684D0" : "#CDC4CC"}
