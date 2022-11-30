@@ -43,10 +43,8 @@ const Hero = () => (
     direction={{ base: "column", xl: "row" }}
     textAlign={{ base: "center", xl: "left" }}
     justifyContent={"center"}
-    margin="0 3rem 10rem 3rem"
-    paddingTop="30vh"
-    minHeight="20rem"
-    height="calc(30vh)"
+    margin="1rem"
+    paddingTop={{lg: "20vh"}}
   >
     <Box marginBottom={10} zIndex="1">
       <Box marginBottom="0.875rem" marginRight={{ base: "0", xl: "5rem" }}>
@@ -69,11 +67,7 @@ const Hero = () => (
       </Box>
     </Box>
 
-    <Image
-      src="/static/logo.svg" alt="Strona Główna goxy"
-      maxWidth="420px"
-      zIndex="10"
-    />
+    <Image src="/static/logo.svg" alt="" />
   </Flex>
 )
 
@@ -144,7 +138,7 @@ const Features = () => {
       title="Funkcje"
     >
       <Tabs variant="line" width="100%" isFitted>
-        <TabList padding="0 4.5rem">
+        <TabList padding="0 4.5rem" flexDirection={{base: "column", md: "row"}}>
           <Tab>Anty bot</Tab>
           <Tab>Logowanie</Tab>
           <Tab>Naprawa skinów</Tab>
@@ -179,7 +173,7 @@ const Feature = () => (
     marginTop={{ base: "1.125rem", lg: "3.125rem" }}
     flexDirection={{ base: "column", md: "row" }}
     alignItems={{ base: "center", md: "start" }}
-    gap="4.375rem"
+    gap={{ base: "2rem", md: "4.375rem" }}
   >
     <Flex
       flexShrink="0"
@@ -214,10 +208,11 @@ const AvailablePlans = () => (
     title="Cennik"
   >
     <Flex
-      flexDirection={{ base: "column", xl: "row" }}
       alignItems="center"
       width="100%"
-      justifyContent="space-between"
+      justifyContent={{ base: "center", xl: "space-between" }}
+      gap="1rem"
+      wrap="wrap"
     >
       <Plan name="Darmowy*" price={0}>
         Pakiet dla początkujących serwerów dla rozwinięcia skrzydeł bez potrzeby wydawania dużych pieniędzy.<br/>
@@ -232,7 +227,7 @@ const AvailablePlans = () => (
       </Plan>
     </Flex>
 
-    <Flex flexDirection="column" textAlign="center" marginTop="3.75rem" gap="1rem">
+    <Flex flexDirection="column" textAlign="center" marginTop="3rem" gap="1rem">
       <Heading>Dostępne plany ci nie wystarczają?</Heading>
       <Text>Napisz do nas, a przygotujemy pakiet spersonalizowany specjalnie dla twojego serwera!</Text>
       <Button size="lg" margin="auto" colorScheme="black">Skontaktuj się z nami</Button>
@@ -255,7 +250,6 @@ const Plan = ({ name, price, pro = false, children }: PlanProps) => (
     borderWidth="1px"
     borderColor={pro ? "#C684D0" : "#CDC4CC"}
     padding="2.5rem"
-    marginBottom="1rem"
   >
     <Flex flexDirection="column" gap="0.875rem" height="100%">
       <Heading size="md">{name}</Heading>

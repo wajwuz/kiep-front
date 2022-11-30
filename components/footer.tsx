@@ -55,20 +55,12 @@ const COLUMNS: ColumnProps[] = [
 
 const Footer = () => (
     <VStack width="100%">
-        {/* <SimpleGrid
-            columns={{ base: 1, sm: 2, md: 3, lg: 4 }}
-            spacingY="2rem"
+        <Flex
             width="100%"
-            paddingBottom="2rem"
+            justifyContent="space-between"
+            wrap="wrap"
+            gap="2rem"
         >
-            {
-                COLUMNS.map(column => (
-                    <Column key={column.title} {...column} />
-                ))
-            }
-        </SimpleGrid> */}
-
-        <Flex width="100%" justifyContent="space-between">
             {
                 COLUMNS.map(column => (
                     <Column key={column.title} {...column} />
@@ -109,6 +101,7 @@ const LicenseAndAuthors = () => (
         <Flex
             width="100%"
             direction={{ base: "column", xl: "row" }}
+            gap="0.2rem"
         >
             <Text color="#555555">© 2022 Goxy. Wszelkie prawa zastrzeżone</Text>
             <Spacer />
