@@ -124,7 +124,7 @@ const Important = (props: ButtonProps) => (
 );
 
 const Docs = (props: ButtonProps) => (
-    <Button as="a" href={DASHBOARD_URL} variant="ghost" marginLeft="3rem" {...props}>
+    <Button as="a" href={DOCS_URL} variant="ghost" marginLeft="3rem" {...props}>
         Dokumentacja
     </Button>
 )
