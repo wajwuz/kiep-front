@@ -38,12 +38,11 @@ const Hero = () => (
     align="center"
     direction={{ base: "column", xl: "row" }}
     textAlign={{ base: "center", xl: "left" }}
-    justifyContent={"center"}
     margin="1rem"
-    paddingTop={{ lg: "20vh" }}
+    paddingTop={{ base: "1rem", xl: "10vh" }}
   >
-    <Box marginBottom={10} zIndex="1">
-      <Box marginBottom="0.875rem" marginRight={{ base: "0", xl: "5rem" }}>
+    <Box>
+      <Box marginRight={{ base: "0", xl: "5rem" }}>
         <Heading fontSize={{ base: "2rem", md: "2.6rem" }}>
           Wymień swoje proxy na dedykowane rozwiązanie{" "}
           <Text
@@ -55,7 +54,7 @@ const Hero = () => (
           </Text>
         </Heading>
 
-        <Text variant="secondary" marginTop={2} marginBottom={7}>
+        <Text variant="secondary" marginTop={2}>
           Oferujemy wszystkie podstawowe funkcjonalności, które zamienią Twój
           aktualny serwer proxy dając Ci dodatkowe funkcjonalności takie jak system logowania,
           automatyczne logowanie premium, ochronę przed botami czy ochronę przed atakami DDoS.
