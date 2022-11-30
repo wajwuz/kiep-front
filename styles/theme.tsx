@@ -7,8 +7,8 @@ const theme = extendTheme(
     useSystemColorMode: false,
     colors: {
       pink: {
-        50: "#fbe3ff",
-        100: "#f6c4ff",
+        50: "#fcedff",
+        100: "#eac7f0",
         500: "#C684D0",
         600: "#9b67a3",
         700: "#805587",
