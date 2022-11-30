@@ -18,11 +18,11 @@ const COLUMNS: ColumnProps[] = [
         links: [
             {
                 title: "Polityka prywatności",
-                href: "#",
+                href: "/privacy-policy",
             },
             {
                 title: "Regulamin usług",
-                href: "#",
+                href: "/tos",
             },
         ],
     },
