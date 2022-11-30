@@ -4,9 +4,7 @@ import {
     LinkProps,
     Menu, MenuButton, MenuItem, MenuList, Spacer,
 } from "@chakra-ui/react";
-
-const PANEL_URL = "https://panel.goxy.pl/"
-const DOCS_URL = "https://docs.goxy.pl/"
+import { DOCS_URL, DASHBOARD_URL } from "../externalLinks";
 
 type NavItem = {
     title: string;
@@ -80,7 +78,7 @@ const MobileNavBar = () => (
                     href={DOCS_URL} />
 
                 <MobileNavBarItem display={{ base: "flex", md: "none" }} title="Przejdź do panelu"
-                    href={PANEL_URL} />
+                    href={DASHBOARD_URL} />
             </MenuList>
         </Menu>
 
@@ -109,7 +107,7 @@ const Logo = (props: LinkProps) => (
         width="11rem"
         fontWeight="600"
         color="#000"
-        href="/#"
+        href="/"
 
         isTruncated
         {...props}
@@ -126,19 +124,15 @@ const Important = (props: ButtonProps) => (
 );
 
 const Docs = (props: ButtonProps) => (
-    <Link href={DOCS_URL}>
-        <Button variant="ghost" marginLeft="3rem" {...props}>
-            Dokumentacja
-        </Button>
-    </Link>
+    <Button as="a" href={DASHBOARD_URL} variant="ghost" marginLeft="3rem" {...props}>
+        Dokumentacja
+    </Button>
 )
 
 const Panel = (props: ButtonProps) => (
-    <Link href={PANEL_URL}>
-        <Button colorScheme="pink" marginLeft="3rem" {...props}>
-            Panel
-        </Button>
-    </Link>
+    <Button as="a" href={DASHBOARD_URL} colorScheme="pink" marginLeft="3rem" {...props}>
+        Panel
+    </Button>
 )
 
 export default NavBar;

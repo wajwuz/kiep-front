@@ -1,12 +1,13 @@
 import {
   Box, Button, Flex, Text, Heading, VStack, Spacer, SimpleGrid,
-  Center, Image, Tabs, TabList, Tab, TabPanels, TabPanel
+  Center, Image, Tabs, TabList, Tab, TabPanels, TabPanel, Link
 } from '@chakra-ui/react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Section from "../components/section";
 import NavBar from "../components/navbar";
 import Footer from "../components/footer";
+import { DISCORD_URL } from '../externalLinks';
 
 const Home: NextPage = () => (
   <>
@@ -215,7 +216,7 @@ const AvailablePlans = () => (
     <Flex flexDirection="column" textAlign="center" marginTop="3rem" gap="1rem">
       <Heading>Dostępne plany ci nie wystarczają?</Heading>
       <Text>Napisz do nas, a przygotujemy pakiet spersonalizowany specjalnie dla twojego serwera!</Text>
-      <Button size="lg" margin="auto" colorScheme="black">Skontaktuj się z nami</Button>
+        <Button as="a" href={DISCORD_URL} size="lg" margin="auto" colorScheme="black">Skontaktuj się z nami</Button>
     </Flex>
   </Section>
 );
@@ -244,11 +245,18 @@ const Plan = ({ name, price, pro = false, children }: PlanProps) => (
       </Flex>
       <Text>{children}</Text>
       <Spacer />
-      <Button margin="0 1.5rem" size="lg" colorScheme={pro ? "pink" : "black"}>Więcej informacji</Button>
+
+      <Button
+        as="a"
+        href={DISCORD_URL}
+        margin="0 1.5rem"
+        size="lg"
+        colorScheme={pro ? "pink" : "black"}
+      >
+        Więcej informacji
+      </Button>
     </Flex>
   </Box>
 );
 
 export default Home
-
-// 12:15

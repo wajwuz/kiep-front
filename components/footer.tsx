@@ -1,4 +1,5 @@
 import { Box, Flex, Heading, Link, SimpleGrid, Spacer, Text, VStack } from "@chakra-ui/react";
+import { DISCORD_URL, DOCS_URL, GITLAB_URL, MAVEN_REPO_URL } from "../externalLinks";
 
 const COLUMNS: ColumnProps[] = [
     {
@@ -30,11 +31,11 @@ const COLUMNS: ColumnProps[] = [
         links: [
             {
                 title: "Dokumentacja",
-                href: "https://docs.goxy.pl/",
+                href: DOCS_URL,
             },
             {
                 title: "Serwer Discord",
-                href: "https://discord.com/invite/3d8vU2Dsrb",
+                href: DISCORD_URL,
             },
         ],
     },
@@ -43,11 +44,11 @@ const COLUMNS: ColumnProps[] = [
         links: [
             {
                 title: "Repozytorium maven",
-                href: "https://repo.goxy.pl/",
+                href: MAVEN_REPO_URL,
             },
             {
                 title: "Gitlab",
-                href: "https://gitlab.com/goxy.pl",
+                href: GITLAB_URL,
             },
         ],
     },
