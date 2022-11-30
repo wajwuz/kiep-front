@@ -1,7 +1,6 @@
-import * as CSS from "csstype"
 import {
-  Box, Button, Flex, Text, Heading, VStack, HStack, Spacer, SimpleGrid,
-  Center, Image, Tabs, TabList, Tab, TabPanels, TabPanel, Link
+  Box, Button, Flex, Text, Heading, VStack, Spacer, SimpleGrid,
+  Center, Image, Tabs, TabList, Tab, TabPanels, TabPanel
 } from '@chakra-ui/react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
@@ -44,7 +43,7 @@ const Hero = () => (
     textAlign={{ base: "center", xl: "left" }}
     justifyContent={"center"}
     margin="1rem"
-    paddingTop={{lg: "20vh"}}
+    paddingTop={{ lg: "20vh" }}
   >
     <Box marginBottom={10} zIndex="1">
       <Box marginBottom="0.875rem" marginRight={{ base: "0", xl: "5rem" }}>
@@ -70,20 +69,6 @@ const Hero = () => (
     <Image src="/static/logo.svg" alt="" />
   </Flex>
 )
-
-const StatisticEntry = ({ textColor }: { textColor: CSS.Property.Color; }) => (
-  <Box align="center" m="1rem 3rem">
-    <Text fontSize="2.25rem"
-      fontWeight={800}
-      backgroundImage={"linear-gradient(110deg, " + textColor + ", #AD00FF)"}
-      backgroundClip="text">
-      75683
-    </Text>
-    <Text fontSize="18px">osób uruchomiło</Text>
-    <Text fontWeight={700} color={"#000"}>goxy</Text>
-    <Text fontSize="18px">w ostatnich 30 dniach</Text>
-  </Box>
-);
 
 const Zalets = () => (
   <Section
@@ -138,7 +123,7 @@ const Features = () => {
       title="Funkcje"
     >
       <Tabs variant="line" width="100%" isFitted>
-        <TabList padding="0 4.5rem" flexDirection={{base: "column", md: "row"}}>
+        <TabList padding="0 4.5rem" flexDirection={{ base: "column", md: "row" }}>
           <Tab>Anty bot</Tab>
           <Tab>Logowanie</Tab>
           <Tab>Naprawa skinów</Tab>
@@ -215,8 +200,8 @@ const AvailablePlans = () => (
       wrap="wrap"
     >
       <Plan name="Darmowy*" price={0}>
-        Pakiet dla początkujących serwerów dla rozwinięcia skrzydeł bez potrzeby wydawania dużych pieniędzy.<br/>
-        <br/>
+        Pakiet dla początkujących serwerów dla rozwinięcia skrzydeł bez potrzeby wydawania dużych pieniędzy.<br />
+        <br />
         *Opłata instalacyjna 10 PLN.
       </Plan>
       <Plan name="Podstawowy" price={30}>
