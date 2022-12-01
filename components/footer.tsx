@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, Link, SimpleGrid, Spacer, Text, VStack } from "@chakra-ui/react";
+import { Flex, Heading, Link, Spacer, Text, VStack } from "@chakra-ui/react";
 import { DISCORD_URL, DOCS_URL, GITLAB_URL, MAVEN_REPO_URL } from "../externalLinks";
 
 const COLUMNS: ColumnProps[] = [
@@ -43,11 +43,11 @@ const COLUMNS: ColumnProps[] = [
         title: "Dla programisty",
         links: [
             {
-                title: "Repozytorium maven",
+                title: "Repozytorium Maven",
                 href: MAVEN_REPO_URL,
             },
             {
-                title: "Gitlab",
+                title: "Repozytorium Gitlab",
                 href: GITLAB_URL,
             },
         ],

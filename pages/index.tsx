@@ -55,8 +55,8 @@ const Hero = () => (
         </Heading>
 
         <Text variant="secondary" marginTop={2}>
-          Oferujemy wszystkie podstawowe funkcjonalności, które zamienią Twój
-          aktualny serwer proxy dając Ci dodatkowe funkcjonalności takie jak system logowania,
+          Oferujemy wszystkie podstawowe funkcjonalności, które pozwolą zamienić
+          aktualny serwer proxy dając dodatkowe funkcje takie jak system logowania,
           automatyczne logowanie premium, ochronę przed botami czy ochronę przed atakami DDoS.
         </Text>
       </Box>
@@ -80,14 +80,14 @@ const Zalets = () => (
         title="Stabilność"
         description={"Goxy jest zaprojektowane tak żeby zużywało jak najmniej możliwych zasobów. " +
           "Nasze serwery są dobrane w taki sposób żeby uzyskać jak największą wydajność. " +
-          "Wszystko po to żeby Twój serwer był jak najbardziej stabilny!."} />
+          "Wszystko po to żeby każdy serwer był jak najbardziej stabilny!"} />
 
       <ZaletsEntry
         icon="shield"
         title="Bezpieczeństwo"
         description={"Hasła wszystkich zarejestrowanych graczy za pomocą goxy są hashowane, " +
-          "a dostęp do naszej bazy danych jest zabezpieczony. Korzystajac z goxy ukrywasz prawdziwe IP serwera, " +
-          "a nawet jeśli ktoś próbuje się połączyć z prawdziwym IP Twojego serwera to nie jest na niego wpuszczony."} />
+          "a dostęp do naszej bazy danych jest zabezpieczony. Korzystając z goxy ukrywasz prawdziwe " +
+          "IP serwera, a nawet jeśli ktoś próbuje się połączyć z prawdziwym IP serwera to nie będzie na niego wpuszczony."} />
 
       <ZaletsEntry
         icon="thumb"
@@ -197,14 +197,17 @@ const AvailablePlans = () => (
     >
       <Plan name="Darmowy*" price={0}>
         Pakiet dla początkujących serwerów dla rozwinięcia skrzydeł bez potrzeby wydawania dużych pieniędzy.<br />
+        Pakiet do ~20 graczy online.<br/>
         <br />
         *Opłata instalacyjna 10 PLN.
       </Plan>
       <Plan name="Podstawowy" price={30}>
-        Podstawowy pakiet dla serwerów, które potrafią się utrzymać ze swoich zarobków i mają już zbudowane grono graczy.
+        Podstawowy pakiet dla serwerów, które potrafią się utrzymać ze swoich zarobków i mają już zbudowane grono graczy.<br />
+        Pakiet do ~50 graczy online.
       </Plan>
       <Plan name="Profesjonalny" price={80} pro>
-        Pakiet dla początkujących sieci i średnich serwerów. Pozwala bez problemów konkurować z innymi serwerami.
+        Pakiet dla początkujących sieci i średnich serwerów. Pozwala bez problemów konkurować z innymi serwerami.<br />
+        Pakiet do ~150 graczy online.
       </Plan>
     </Flex>
 
