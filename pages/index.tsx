@@ -112,44 +112,61 @@ const ZaletsEntry: React.FC<ZaletsEntryProps> = ({ title, description, icon }) =
   </Flex>
 )
 
-const Features = () => {
-  return (
-    <Section
-      id="features"
-      title="Funkcje"
-    >
-      <Tabs variant="line" width="100%" isFitted>
-        <TabList padding="0 4.5rem" flexDirection={{ base: "column", md: "row" }}>
-          <Tab>Anty bot</Tab>
-          <Tab>Logowanie</Tab>
-          <Tab>Naprawa skinów</Tab>
-          <Tab>Load balancer</Tab>
-          <Tab>Anty DDoS</Tab>
-        </TabList>
+const Features = () => (
+  <Section
+    id="features"
+    title="Funkcje"
+  >
+    <Tabs variant="line" width="100%" isFitted>
+      <TabList padding="0 4.5rem" flexDirection={{ base: "column", md: "row" }}>
+        <Tab>Anty bot</Tab>
+        <Tab>Logowanie</Tab>
+        <Tab>Naprawa skinów</Tab>
+        <Tab>Load balancer</Tab>
+        <Tab>Anty DDoS</Tab>
+      </TabList>
 
-        <TabPanels>
-          <TabPanel>
-            <Feature />
-          </TabPanel>
-          <TabPanel>
-            <Feature />
-          </TabPanel>
-          <TabPanel>
-            <Feature />
-          </TabPanel>
-          <TabPanel>
-            <Feature />
-          </TabPanel>
-          <TabPanel>
-            <Feature />
-          </TabPanel>
-        </TabPanels>
-      </Tabs>
-    </Section>
-  )
-}
+      <TabPanels>
+        <TabPanel>
+          <Feature image="/static/landing/vcn.png" imageAlt="Wygląd systemu Anty bot w grze - obrazek captcha.">
+            <Heading size="md">Weryfikacja odbywa się po stronie proxy</Heading>
+            <br />
+            <Text>
+              Weryfikacja chroniąca przed botami odbywa się po wejściu gracza na serwer w ramach,
+              której gracz może zostać poproszony o przepisanie kodu captcha z obrazka wyświetlonego w grze.
+            </Text>
+            <br />
+            <Text>Nic skomplikowanego, a dzięki temu żaden bot nie przedostanie się na serwer.</Text>
+          </Feature>
+        </TabPanel>
 
-const Feature = () => (
+        <TabPanel>
+          {/* <Feature> */}
+        </TabPanel>
+
+        <TabPanel>
+          {/* <Feature> */}
+        </TabPanel>
+
+        <TabPanel>
+          {/* <Feature> */}
+        </TabPanel>
+
+        <TabPanel>
+          {/* <Feature> */}
+        </TabPanel>
+      </TabPanels>
+    </Tabs>
+  </Section>
+)
+
+type FeatureProps = {
+  image: string,
+  imageAlt: string,
+  children: React.ReactNode,
+};
+
+const Feature = ({ image, imageAlt, children }: FeatureProps) => (
   <Flex
     marginTop={{ base: "1.125rem", lg: "3.125rem" }}
     flexDirection={{ base: "column", md: "row" }}
@@ -168,17 +185,13 @@ const Feature = () => (
       padding="2rem 2rem 0 0"
     >
       <Image
-        src="/static/landing/vcn.png" alt="Wygląd systemu Anty bot w grze - obrazek captcha."
+        src={image} alt={imageAlt}
         objectFit="cover"
       />
     </Flex>
 
     <Box>
-      <Heading size="md">Weryfikacja odbywa się po stronie proxy</Heading>
-      <br />
-      <Text>Weryfikacja chroniąca przed botami odbywa się po wejściu gracza na serwer w ramach, której gracz może zostać poproszony o przepisanie kodu captcha z obrazka wyświetlonego w grze. </Text>
-      <br />
-      <Text>Nic skomplikowanego, a dzięki temu żaden bot nie przedostanie się na serwer. </Text>
+      {children}
     </Box>
   </Flex>
 )
@@ -197,8 +210,8 @@ const AvailablePlans = () => (
     >
       <Plan name="Darmowy*" price={0}>
         Pakiet dla początkujących serwerów dla rozwinięcia skrzydeł bez potrzeby wydawania dużych pieniędzy.<br />
-        Pakiet do ~20 graczy online.<br/>
-        <br/>
+        Pakiet do ~20 graczy online.<br />
+        <br />
         *Opłata instalacyjna 10 PLN.
       </Plan>
       <Plan name="Podstawowy" price={30}>
