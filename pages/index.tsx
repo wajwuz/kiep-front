@@ -198,15 +198,17 @@ const AvailablePlans = () => (
       <Plan name="Darmowy*" price={0}>
         Pakiet dla początkujących serwerów dla rozwinięcia skrzydeł bez potrzeby wydawania dużych pieniędzy.<br />
         Pakiet do ~20 graczy online.<br/>
-        <br />
+        <br/>
         *Opłata instalacyjna 10 PLN.
       </Plan>
       <Plan name="Podstawowy" price={30}>
         Podstawowy pakiet dla serwerów, które potrafią się utrzymać ze swoich zarobków i mają już zbudowane grono graczy.<br />
+        <br />
         Pakiet do ~50 graczy online.
       </Plan>
       <Plan name="Profesjonalny" price={80} pro>
         Pakiet dla początkujących sieci i średnich serwerów. Pozwala bez problemów konkurować z innymi serwerami.<br />
+        <br />
         Pakiet do ~150 graczy online.
       </Plan>
     </Flex>
@@ -229,7 +231,7 @@ type PlanProps = {
 const Plan = ({ name, price, pro = false, children }: PlanProps) => (
   <Box
     width="21rem"
-    height="25.25rem"
+    height="26.5rem"
     borderRadius="25"
     borderWidth="1px"
     borderColor={pro ? "#C684D0" : "#CDC4CC"}
