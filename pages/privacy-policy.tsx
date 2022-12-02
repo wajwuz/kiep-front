@@ -11,10 +11,10 @@ const Tos: NextPage = () => (
       <title>Polityka prywatności - goxy.pl</title>
     </Head>
 
-    <NavBar />
-
     <Center>
       <VStack maxWidth="70rem" margin="0 1rem">
+        <NavBar />
+
         <TosSection />
 
         <Footer />
@@ -26,7 +26,7 @@ const Tos: NextPage = () => (
 const TosSection = () => (
   <Section id="tos" title="Polityka prywatności">
     <Text>
-    {`
+      {`
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vestibulum nulla eget fermentum volutpat. Phasellus non sapien non diam semper cursus sed vel ante. Donec sit amet pretium sapien. In hac habitasse platea dictumst. Maecenas turpis purus, semper at magna eget, volutpat finibus nisi. Sed nec maximus eros. Aliquam ut sapien dignissim, sollicitudin ipsum id, ultrices neque. In sed felis non ipsum efficitur scelerisque. Praesent sit amet enim non augue tincidunt hendrerit. Etiam tempus semper risus, quis viverra magna fermentum vitae. Vivamus vitae dolor sit amet arcu fermentum dictum.
 
     Morbi mattis, ligula quis elementum dapibus, ante est rhoncus urna, ac elementum tortor sem ut lacus. Nam non ipsum erat. Nulla molestie rhoncus sagittis. Nunc cursus vel justo a dignissim. Aliquam venenatis iaculis semper. Aliquam tempor fringilla nibh sed tincidunt. Maecenas dictum convallis facilisis. Sed vulputate lorem aliquam eros vestibulum aliquet. In sagittis, massa vel tempus sollicitudin, dui metus laoreet eros, vitae porttitor velit augue imperdiet nulla. Aliquam libero ipsum, gravida id lacinia euismod, venenatis id orci. Aliquam eget massa ligula. Sed eget pulvinar quam, id suscipit mi. Phasellus lacus turpis, venenatis eget est non, auctor condimentum neque. Sed vel dictum eros, non bibendum libero.

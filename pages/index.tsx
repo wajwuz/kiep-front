@@ -15,10 +15,10 @@ const Home: NextPage = () => (
       <title>Strona główna goxy.pl</title>
     </Head>
 
-    <NavBar />
-
     <Center>
       <VStack spacing={{ base: "4.75rem", xl: "8.75rem" }} maxWidth="71rem" margin="0 2rem">
+        <NavBar />
+
         <Hero />
 
         <Zalets />
@@ -38,7 +38,6 @@ const Hero = () => (
     align="center"
     direction={{ base: "column", xl: "row" }}
     textAlign={{ base: "center", xl: "left" }}
-    margin="1rem"
     paddingTop={{ base: "1rem", xl: "10vh" }}
   >
     <Box>

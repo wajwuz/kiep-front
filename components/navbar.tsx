@@ -29,13 +29,11 @@ const NAV_ITEMS: Array<NavItem> = [
 
 
 const NavBar = () => (
-    <Center>
-        <Box width="70%" maxWidth="77.5rem" height="8rem" padding="4rem 0rem 4rem 0rem" zIndex="100">
-            <DesktopNavBar />
+    <Box width="100%" height="8rem" padding="4rem 0rem 4rem 0rem">
+        <DesktopNavBar />
 
-            <MobileNavBar />
-        </Box>
-    </Center>
+        <MobileNavBar />
+    </Box>
 )
 
 const DesktopNavBar = () => (
