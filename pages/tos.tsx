@@ -1,7 +1,5 @@
-import { VStack, Center, Text } from '@chakra-ui/react'
+import { Text } from '@chakra-ui/react'
 import Section from "../components/section";
-import NavBar from "../components/navbar";
-import Footer from "../components/footer";
 import Head from 'next/head';
 import { NextPage } from 'next';
 
@@ -11,15 +9,7 @@ const Tos: NextPage = () => (
       <title>Regulamin usług - goxy.pl</title>
     </Head>
 
-    <Center>
-      <VStack maxWidth="70em" spacing="4rem" margin="0 1rem">
-        <NavBar />
-
-        <TosSection />
-
-        <Footer />
-      </VStack>
-    </Center>
+    <TosSection />
   </>
 )
 

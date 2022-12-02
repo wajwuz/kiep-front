@@ -4,8 +4,6 @@ import {
 } from '@chakra-ui/react'
 import type { NextPage } from 'next'
 import Section from "../components/section";
-import NavBar from "../components/navbar";
-import Footer from "../components/footer";
 import { DISCORD_URL } from '../externalLinks';
 import Head from 'next/head';
 
@@ -15,21 +13,10 @@ const Home: NextPage = () => (
       <title>Strona główna goxy.pl</title>
     </Head>
 
-    <Center>
-      <VStack spacing={{ base: "4.75rem", xl: "8.75rem" }} maxWidth="71rem" margin="0 2rem">
-        <NavBar />
-
-        <Hero />
-
-        <Zalets />
-
-        <Features />
-
-        <AvailablePlans />
-
-        <Footer />
-      </VStack>
-    </Center>
+    <Hero />
+    <Zalets />
+    <Features />
+    <AvailablePlans />
   </>
 )
 
