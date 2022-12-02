@@ -38,7 +38,6 @@ const Hero = () => (
     align="center"
     direction={{ base: "column", xl: "row" }}
     textAlign={{ base: "center", xl: "left" }}
-    paddingTop={{ base: "1rem", xl: "10vh" }}
   >
     <Box>
       <Box marginRight={{ base: "0", xl: "5rem" }}>

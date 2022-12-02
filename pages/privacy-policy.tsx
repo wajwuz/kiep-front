@@ -12,7 +12,7 @@ const Tos: NextPage = () => (
     </Head>
 
     <Center>
-      <VStack maxWidth="70rem" margin="0 1rem">
+      <VStack maxWidth="70rem" spacing="4rem" margin="0 1rem">
         <NavBar />
 
         <TosSection />

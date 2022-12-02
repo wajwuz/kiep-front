@@ -29,7 +29,7 @@ const NAV_ITEMS: Array<NavItem> = [
 
 
 const NavBar = () => (
-    <Box width="100%" height="8rem" padding="4rem 0rem 4rem 0rem">
+    <Box width="100%" height={{ base: "4rem", "xl": "" }} paddingTop="4rem">
         <DesktopNavBar />
 
         <MobileNavBar />
