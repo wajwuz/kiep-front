@@ -89,7 +89,7 @@ type ZaletsEntryProps = { title: string; description: string; icon: string; }
 const ZaletsEntry: React.FC<ZaletsEntryProps> = ({ title, description, icon }) => (
   <Flex flexDirection="column" gap="15px">
     <Flex backgroundColor="#FCECFF" width="3.375rem" height="3.375rem" borderRadius="10">
-      <Image src={"/static/landing/" + icon + ".svg"} alt="Strona Główna goxy" margin="auto" />
+      <Image src={"/static/landing/" + icon + ".svg"} alt="" margin="auto" />
     </Flex>
 
     <Heading size="md">{title}</Heading>
