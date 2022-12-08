@@ -117,8 +117,7 @@ const Features = () => (
             <Heading size="md">Weryfikacja odbywa się po stronie proxy</Heading>
             <br />
             <Text>
-              Weryfikacja chroniąca przed botami odbywa się po wejściu gracza na serwer w ramach,
-              której gracz może zostać poproszony o przepisanie kodu captcha z obrazka wyświetlonego w grze.
+            Weryfikacja chroniąca przed botami odbywa się podczas próby wejścia na serwer, w ramach której nasze systemy sprawdzają połączenie pod kątem tego, czy kryje się za nim prawdziwy gracz. Dodatkowo gracz może zostać poproszony o przepisanie kodu captcha z obrazka wyświetlonego w grze, a w specyficznych sytuacjach będzie zmuszony do wypełnienie captchy na stronie internetowej.
             </Text>
             <br />
             <Text>Nic skomplikowanego, a dzięki temu żaden bot nie przedostanie się na serwer.</Text>
@@ -164,7 +163,8 @@ const Feature = ({ image, imageAlt, children }: FeatureProps) => (
       borderColor="#CDC4CC"
       borderWidth="1px"
       overflow="clip"
-      width="40%"
+      width={{base: "100%", md: "50%"}}
+      maxWidth="400px"
       height="80%"
       backgroundColor="#FCECFF"
       padding="2rem 2rem 0 0"
