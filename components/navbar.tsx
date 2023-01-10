@@ -1,10 +1,10 @@
 import { HamburgerIcon } from "@chakra-ui/icons";
 import {
-    Box, Button, ButtonProps, Center, Flex, IconButton, LayoutProps, Link,
+    Box, Button, ButtonProps, Flex, IconButton, LayoutProps, Link,
     LinkProps,
     Menu, MenuButton, MenuItem, MenuList, Spacer,
 } from "@chakra-ui/react";
-import { DOCS_URL, DASHBOARD_URL } from "../externalLinks";
+import { DISCORD_URL } from "../externalLinks";
 
 type NavItem = {
     title: string;
@@ -14,16 +14,16 @@ type NavItem = {
 
 const NAV_ITEMS: Array<NavItem> = [
     {
-        title: "Zalety",
-        href: "/#zalets",
-    },
-    {
-        title: "Funkcje",
+        title: "Features",
         href: "/#features",
     },
+    // {
+    //     title: "Funkcje",
+    //     href: "/#functions",
+    // },
     {
-        title: "Cennik",
-        href: "/#plans",
+        title: "Prices",
+        href: "/#prices",
     },
 ]
 
@@ -65,18 +65,18 @@ const MobileNavBar = () => (
             <MenuButton
                 width="2.5rem"
                 as={IconButton}
-                aria-label='Nawigacja'
+                aria-label='Navigation'
                 icon={<HamburgerIcon />}
                 variant='ghost'
             />
-            <MenuList borderWidth="0">
+            <MenuList borderWidth="0" textColor={"#191A20"}>
                 {NAV_ITEMS.map(item => (<MobileNavBarItem key={item.title} {...item} />))}
 
-                <MobileNavBarItem display={{ base: "flex", md: "none" }} title="Dokumentacja"
-                    href={DOCS_URL} />
+                {/* <MobileNavBarItem display={{ base: "flex", md: "none" }} title="Dokumentacja"
+                    href={DOCS_URL} /> */}
 
-                <MobileNavBarItem display={{ base: "flex", md: "none" }} title="Przejdź do panelu"
-                    href={DASHBOARD_URL} />
+                <MobileNavBarItem display={{ base: "flex", md: "none" }} title="Join discord server"
+                    href={DISCORD_URL} />
             </MenuList>
         </Menu>
 
@@ -110,26 +110,26 @@ const Logo = (props: LinkProps) => (
         isTruncated
         {...props}
     >
-        GOXY
+        STORE
     </Link>
 )
 
 const Important = (props: ButtonProps) => (
     <>
-        <Docs {...props} />
-        <Panel {...props} />
+        {/* <Docs {...props} /> */}
+        <Discord {...props} />
     </>
 );
 
-const Docs = (props: ButtonProps) => (
-    <Button as="a" href={DOCS_URL} variant="ghost" marginLeft="3rem" {...props}>
-        Dokumentacja
-    </Button>
-)
+// const Docs = (props: ButtonProps) => (
+//     <Button as="a" href={DOCS_URL} variant="ghost" marginLeft="3rem" {...props}>
+//         Dokumentacja
+//     </Button>
+// )
 
-const Panel = (props: ButtonProps) => (
-    <Button as="a" href={DASHBOARD_URL} colorScheme="pink" marginLeft="3rem" {...props}>
-        Panel
+const Discord = (props: ButtonProps) => (
+    <Button as="a" href={DISCORD_URL} colorScheme="pink" marginLeft="3rem" {...props}>
+        Discord
     </Button>
 )
 

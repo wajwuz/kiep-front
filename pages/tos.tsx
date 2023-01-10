@@ -6,7 +6,7 @@ import { NextPage } from 'next';
 const Tos: NextPage = () => (
   <>
     <Head>
-      <title>Regulamin usług - goxy.pl</title>
+      <title>Terms of Service</title>
     </Head>
 
     <TosSection />
@@ -14,7 +14,7 @@ const Tos: NextPage = () => (
 )
 
 const TosSection = () => (
-  <Section id="tos" title="Regulamin usług">
+  <Section id="tos" title="Terms of Service">
     <Text>
       {`
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vestibulum nulla eget fermentum volutpat. Phasellus non sapien non diam semper cursus sed vel ante. Donec sit amet pretium sapien. In hac habitasse platea dictumst. Maecenas turpis purus, semper at magna eget, volutpat finibus nisi. Sed nec maximus eros. Aliquam ut sapien dignissim, sollicitudin ipsum id, ultrices neque. In sed felis non ipsum efficitur scelerisque. Praesent sit amet enim non augue tincidunt hendrerit. Etiam tempus semper risus, quis viverra magna fermentum vitae. Vivamus vitae dolor sit amet arcu fermentum dictum.

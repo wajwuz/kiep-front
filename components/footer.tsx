@@ -1,57 +1,57 @@
 import { Flex, Heading, Link, Spacer, Text, VStack } from "@chakra-ui/react";
-import { DISCORD_URL, DOCS_URL, GITLAB_URL, MAVEN_REPO_URL } from "../externalLinks";
+import { DISCORD_URL, EMAIL } from "../externalLinks";
 
 const COLUMNS: ColumnProps[] = [
+    // {
+    //     title: "Store",
+    //     links: [],
+    //     text: `
+    //         ul. św Jana 11/4
+    //         Katowice 40-012
+    //         NIP: 5030087161
+    //         REGON: 522902017
+    //         biuro@goxy.pl
+    //     `,
+    // },
     {
-        title: "Goxy",
-        links: [],
-        text: `
-            ul. św Jana 11/4
-            Katowice 40-012
-            NIP: 5030087161
-            REGON: 522902017
-            biuro@goxy.pl
-        `,
-    },
-    {
-        title: "Regulaminy",
+        title: "Regulations",
         links: [
             {
-                title: "Polityka prywatności",
+                title: "Privacy policy",
                 href: "/privacy-policy",
             },
             {
-                title: "Regulamin usług",
+                title: "Terms of Service",
                 href: "/tos",
             },
         ],
     },
     {
-        title: "Pomoc",
+        title: "Help",
         links: [
             {
-                title: "Dokumentacja",
-                href: DOCS_URL,
+                title: "Email",
+                href: EMAIL,
             },
             {
-                title: "Serwer Discord",
+                title: "Discord",
                 href: DISCORD_URL,
             },
         ],
     },
-    {
-        title: "Dla programisty",
-        links: [
-            {
-                title: "Repozytorium Maven",
-                href: MAVEN_REPO_URL,
-            },
-            {
-                title: "Repozytorium Gitlab",
-                href: GITLAB_URL,
-            },
-        ],
-    },
+    // {
+    //     title: "Dla programisty",
+    //     links: [
+    //         {
+    //             title: "Repozytorium Maven",
+    //             href: MAVEN_REPO_URL,
+    //         },
+    //         {
+    //             title: "Repozytorium Gitlab",
+    //             href: GITLAB_URL,
+    //         },
+    //     ],
+    // },
 ]
 
 const Footer = () => (
@@ -88,7 +88,7 @@ const Column = ({ title, links, text }: ColumnProps) => (
     <VStack alignItems="start">
         <Heading fontSize="1.5rem" marginRight="1rem">{title}</Heading>
         {links.map(link => (
-            <Link key={link.title} href={link.href} color="#333" fontSize="1.25rem" isExternal>{link.title}</Link>
+            <Link key={link.title} href={link.href} color="#FFFFFF" fontSize="1.25rem" isExternal>{link.title}</Link>
         ))}
 
         {text && <Text paddingBottom="1rem">
@@ -104,12 +104,13 @@ const LicenseAndAuthors = () => (
             direction={{ base: "column", xl: "row" }}
             gap="0.2rem"
         >
-            <Text color="#555555">© 2022 Goxy. Wszelkie prawa zastrzeżone</Text>
+            {/* <Text color="#555555">© 2022 Goxy. Wszelkie prawa zastrzeżone</Text> */}
             <Spacer />
             <Text color="#555555">
-                Strona wykonana przez:{" "}
+                Website made by:{" "}
                 <Link color="purple" href="https://pixelsmp.pl/" isExternal>netsu</Link> (design),{" "}
-                <Link color="purple" href="https://www.makin.cc/" isExternal>www_makin_cc</Link> (zaprogramowanie)
+                <Link color="purple" href="https://www.makin.cc/" isExternal>www_makin_cc</Link> (code),{" "}
+                <Link color="purple" href="https://github.com/wajwuz" isExternal>wajwuz</Link> (current edit)
             </Text>
         </Flex>
     </Flex>

@@ -6,7 +6,7 @@ export default class Document extends NextDocument {
     return (
       <Html lang='en'>
         <Head>
-          <meta name="description" content="Goxy - Twoje dedykowane rozwiązanie proxy" />
+          {/* <meta name="description" content="Goxy - Twoje dedykowane rozwiązanie proxy" /> */}
           <link rel="icon" href="/static/favicon.ico" />
         </Head>
         <body>

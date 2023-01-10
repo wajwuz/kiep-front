@@ -10,12 +10,12 @@ import Head from 'next/head';
 const Home: NextPage = () => (
   <>
     <Head>
-      <title>Strona główna goxy.pl</title>
+      <title>Store</title>
     </Head>
 
     <Hero />
-    <Zalets />
     <Features />
+    {/* <Functions /> */}
     <AvailablePlans />
   </>
 )
@@ -29,20 +29,21 @@ const Hero = () => (
     <Box>
       <Box marginRight={{ base: "0", xl: "5rem" }}>
         <Heading fontSize={{ base: "2rem", md: "2.6rem" }}>
-          Wymień swoje proxy na dedykowane rozwiązanie{" "}
+          Your one and only trusted{" "}
           <Text
             as="span"
-            background="linear-gradient(94.3deg, #D091DA 0%, #AD00FF 200.63%)"
+            background="linear-gradient(94.3deg, #03506F 0%, #03C4A1 200.63%)"
             backgroundClip="text"
           >
-            goxy
+            store
           </Text>
         </Heading>
 
         <Text variant="secondary" marginTop={2}>
-          Oferujemy wszystkie podstawowe funkcjonalności, które pozwolą zamienić
-          aktualny serwer proxy dając dodatkowe funkcje takie jak system logowania,
-          automatyczne logowanie premium, ochronę przed botami czy ochronę przed atakami DDoS.
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+        It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
+        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
         </Text>
       </Box>
     </Box>
@@ -51,44 +52,44 @@ const Hero = () => (
   </Flex>
 )
 
-const Zalets = () => (
+const Features = () => (
   <Section
-    id="zalets"
-    title="Co sprawia, że zakochasz się w goxy?"
+    id="features"
+    title="How can you believe it?"
   >
     <SimpleGrid
       columns={{ base: 1, lg: 3 }}
       spacing={12}
     >
-      <ZaletsEntry
+      <FeaturesEntry
         icon="rocket"
-        title="Stabilność"
-        description={"Goxy jest zaprojektowane tak żeby zużywało jak najmniej możliwych zasobów. " +
-          "Nasze serwery są dobrane w taki sposób żeby uzyskać jak największą wydajność. " +
-          "Wszystko po to żeby każdy serwer był jak najbardziej stabilny!"} />
+        title="Stability"
+        description={"Lorem Ipsum is simply dummy text of the printing and typesetting industry." +
+                    "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s," + 
+                    "when an unknown printer took a galley of type and scrambled it to make a type specimen book."} />
 
-      <ZaletsEntry
+      <FeaturesEntry
         icon="shield"
-        title="Bezpieczeństwo"
-        description={"Hasła wszystkich zarejestrowanych graczy za pomocą goxy są hashowane, " +
-          "a dostęp do naszej bazy danych jest zabezpieczony. Korzystając z goxy ukrywasz prawdziwe " +
-          "IP serwera, a nawet jeśli ktoś próbuje się połączyć z prawdziwym IP serwera to nie będzie na niego wpuszczony."} />
+        title="Security"
+        description={"Lorem Ipsum is simply dummy text of the printing and typesetting industry." +
+                    "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s," + 
+                    "when an unknown printer took a galley of type and scrambled it to make a type specimen book."} />
 
-      <ZaletsEntry
+      <FeaturesEntry
         icon="thumb"
-        title="Prostota"
-        description={"Wszystkie funkcje oferowane przez goxy zostały zaprojektowane tak " +
-          "żeby dało się je wyłączyć kiedy tego potrzebujesz. Wszystko to czego potrzebujesz ustawisz w naszym panelu " +
-          "bez żadnych komplikacji, a jeśli masz taką potrzebę, możesz konfigurować swój serwer za pomocą poleceń w grze."} />
+        title="Simplicity"
+        description={"Lorem Ipsum is simply dummy text of the printing and typesetting industry." +
+                    "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s," + 
+                    "when an unknown printer took a galley of type and scrambled it to make a type specimen book."} />
     </SimpleGrid>
   </Section>
 )
 
-type ZaletsEntryProps = { title: string; description: string; icon: string; }
+type FeaturesEntryProps = { title: string; description: string; icon: string; }
 
-const ZaletsEntry: React.FC<ZaletsEntryProps> = ({ title, description, icon }) => (
+const FeaturesEntry: React.FC<FeaturesEntryProps> = ({ title, description, icon }) => (
   <Flex flexDirection="column" gap="15px">
-    <Flex backgroundColor="#FCECFF" width="3.375rem" height="3.375rem" borderRadius="10">
+    <Flex backgroundColor="#03506F" width="3.375rem" height="3.375rem" borderRadius="10">
       <Image src={"/static/landing/" + icon + ".svg"} alt="" margin="auto" />
     </Flex>
 
@@ -97,94 +98,94 @@ const ZaletsEntry: React.FC<ZaletsEntryProps> = ({ title, description, icon }) =
   </Flex>
 )
 
-const Features = () => (
-  <Section
-    id="features"
-    title="Funkcje"
-  >
-    <Tabs variant="line" width="100%" isFitted>
-      <TabList padding="0 4.5rem" flexDirection={{ base: "column", md: "row" }}>
-        <Tab>Anty bot</Tab>
-        <Tab>Logowanie</Tab>
-        <Tab>Naprawa skinów</Tab>
-        <Tab>Load balancer</Tab>
-        <Tab>Anty DDoS</Tab>
-      </TabList>
+// const Functions = () => (
+//   <Section
+//     id="functions"
+//     title="Funkcje"
+//   >
+//     <Tabs variant="line" width="100%" isFitted>
+//       <TabList padding="0 4.5rem" flexDirection={{ base: "column", md: "row" }}>
+//         <Tab>Anty bot</Tab>
+//         <Tab>Logowanie</Tab>
+//         <Tab>Naprawa skinów</Tab>
+//         <Tab>Load balancer</Tab>
+//         <Tab>Anty DDoS</Tab>
+//       </TabList>
 
-      <TabPanels>
-        <TabPanel>
-          <Feature image="/static/landing/vcn.png" imageAlt="Wygląd systemu Anty bot w grze - obrazek captcha.">
-            <Heading size="md">Weryfikacja odbywa się po stronie proxy</Heading>
-            <br />
-            <Text>
-            Weryfikacja chroniąca przed botami odbywa się podczas próby wejścia na serwer, w ramach której nasze systemy sprawdzają połączenie pod kątem tego, czy kryje się za nim prawdziwy gracz. Dodatkowo gracz może zostać poproszony o przepisanie kodu captcha z obrazka wyświetlonego w grze, a w specyficznych sytuacjach będzie zmuszony do wypełnienie captchy na stronie internetowej.
-            </Text>
-            <br />
-            <Text>Nic skomplikowanego, a dzięki temu żaden bot nie przedostanie się na serwer.</Text>
-          </Feature>
-        </TabPanel>
+//       <TabPanels>
+//         <TabPanel>
+//           <Feature image="/static/landing/vcn.png" imageAlt="Wygląd systemu Anty bot w grze - obrazek captcha.">
+//             <Heading size="md">Weryfikacja odbywa się po stronie proxy</Heading>
+//             <br />
+//             <Text>
+//             Weryfikacja chroniąca przed botami odbywa się podczas próby wejścia na serwer, w ramach której nasze systemy sprawdzają połączenie pod kątem tego, czy kryje się za nim prawdziwy gracz. Dodatkowo gracz może zostać poproszony o przepisanie kodu captcha z obrazka wyświetlonego w grze, a w specyficznych sytuacjach będzie zmuszony do wypełnienie captchy na stronie internetowej.
+//             </Text>
+//             <br />
+//             <Text>Nic skomplikowanego, a dzięki temu żaden bot nie przedostanie się na serwer.</Text>
+//           </Feature>
+//         </TabPanel>
 
-        <TabPanel>
-          {/* <Feature> */}
-        </TabPanel>
+//         <TabPanel>
+//           {/* <Feature> */}
+//         </TabPanel>
 
-        <TabPanel>
-          {/* <Feature> */}
-        </TabPanel>
+//         <TabPanel>
+//           {/* <Feature> */}
+//         </TabPanel>
 
-        <TabPanel>
-          {/* <Feature> */}
-        </TabPanel>
+//         <TabPanel>
+//           {/* <Feature> */}
+//         </TabPanel>
 
-        <TabPanel>
-          {/* <Feature> */}
-        </TabPanel>
-      </TabPanels>
-    </Tabs>
-  </Section>
-)
+//         <TabPanel>
+//           {/* <Feature> */}
+//         </TabPanel>
+//       </TabPanels>
+//     </Tabs>
+//   </Section>
+// )
 
-type FeatureProps = {
-  image: string,
-  imageAlt: string,
-  children: React.ReactNode,
-};
+// type FeatureProps = {
+//   image: string,
+//   imageAlt: string,
+//   children: React.ReactNode,
+// };
 
-const Feature = ({ image, imageAlt, children }: FeatureProps) => (
-  <Flex
-    marginTop={{ base: "1.125rem", lg: "3.125rem" }}
-    flexDirection={{ base: "column", md: "row" }}
-    alignItems={{ base: "center", md: "start" }}
-    gap={{ base: "2rem", md: "4.375rem" }}
-  >
-    <Flex
-      flexShrink="0"
-      borderRadius="25"
-      borderColor="#CDC4CC"
-      borderWidth="1px"
-      overflow="clip"
-      width={{base: "100%", md: "50%"}}
-      maxWidth="400px"
-      height="80%"
-      backgroundColor="#FCECFF"
-      padding="2rem 2rem 0 0"
-    >
-      <Image
-        src={image} alt={imageAlt}
-        objectFit="cover"
-      />
-    </Flex>
+// const Feature = ({ image, imageAlt, children }: FeatureProps) => (
+//   <Flex
+//     marginTop={{ base: "1.125rem", lg: "3.125rem" }}
+//     flexDirection={{ base: "column", md: "row" }}
+//     alignItems={{ base: "center", md: "start" }}
+//     gap={{ base: "2rem", md: "4.375rem" }}
+//   >
+//     <Flex
+//       flexShrink="0"
+//       borderRadius="25"
+//       borderColor="#CDC4CC"
+//       borderWidth="1px"
+//       overflow="clip"
+//       width={{base: "100%", md: "50%"}}
+//       maxWidth="400px"
+//       height="80%"
+//       backgroundColor="#FCECFF"
+//       padding="2rem 2rem 0 0"
+//     >
+//       <Image
+//         src={image} alt={imageAlt}
+//         objectFit="cover"
+//       />
+//     </Flex>
 
-    <Box>
-      {children}
-    </Box>
-  </Flex>
-)
+//     <Box>
+//       {children}
+//     </Box>
+//   </Flex>
+// )
 
 const AvailablePlans = () => (
   <Section
-    id="plans"
-    title="Cennik"
+    id="prices"
+    title="Prices"
   >
     <Flex
       alignItems="center"
@@ -193,28 +194,21 @@ const AvailablePlans = () => (
       gap="1rem"
       wrap="wrap"
     >
-      <Plan name="Darmowy*" price={0}>
-        Pakiet dla początkujących serwerów dla rozwinięcia skrzydeł bez potrzeby wydawania dużych pieniędzy.<br />
-        Pakiet do ~20 graczy online.<br />
-        <br />
-        *Opłata instalacyjna 10 PLN.
+      <Plan name="Example" price={10}>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
       </Plan>
-      <Plan name="Podstawowy" price={30}>
-        Podstawowy pakiet dla serwerów, które potrafią się utrzymać ze swoich zarobków i mają już zbudowane grono graczy.<br />
-        <br />
-        Pakiet do ~50 graczy online.
+      <Plan name="Second example" price={20}>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
       </Plan>
-      <Plan name="Profesjonalny" price={80} pro>
-        Pakiet dla początkujących sieci i średnich serwerów. Pozwala bez problemów konkurować z innymi serwerami.<br />
-        <br />
-        Pakiet do ~150 graczy online.
+      <Plan name="Third example" price={30} pro>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
       </Plan>
     </Flex>
 
     <Flex flexDirection="column" textAlign="center" marginTop="3rem" gap="1rem">
-      <Heading>Dostępne plany ci nie wystarczają?</Heading>
-      <Text>Napisz do nas, a przygotujemy pakiet spersonalizowany specjalnie dla twojego serwera!</Text>
-      <Button as="a" href={DISCORD_URL} size="lg" margin="auto" colorScheme="black">Skontaktuj się z nami</Button>
+      <Heading>Looking for something different??</Heading>
+      <Text>Napisz do nas, a sprawdzimy czy jesteśmy w stanie to zrealizować!</Text>
+      <Button as="a" href={DISCORD_URL} size="lg" margin="auto" colorScheme="black">Contact with us</Button>
     </Flex>
   </Section>
 );
@@ -232,14 +226,14 @@ const Plan = ({ name, price, pro = false, children }: PlanProps) => (
     height="26.5rem"
     borderRadius="25"
     borderWidth="1px"
-    borderColor={pro ? "#C684D0" : "#CDC4CC"}
+    borderColor={pro ? "#03506F" : "#DDDDDD"}
     padding="2.5rem"
   >
     <Flex flexDirection="column" gap="0.875rem" height="100%">
       <Heading size="md">{name}</Heading>
       <Flex alignItems="end" gap="0.5rem">
-        <Heading size="xl">{price} PLN</Heading>
-        <Heading size="md" fontWeight="normal" lineHeight="180%">/msc</Heading>
+        <Heading size="xl">{price} $</Heading>
+        <Heading size="md" fontWeight="normal" lineHeight="180%">/monthly</Heading>
       </Flex>
       <Text>{children}</Text>
       <Spacer />
@@ -251,7 +245,7 @@ const Plan = ({ name, price, pro = false, children }: PlanProps) => (
         size="lg"
         colorScheme={pro ? "pink" : "black"}
       >
-        Więcej informacji
+        More informations
       </Button>
     </Flex>
   </Box>

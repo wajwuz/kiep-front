@@ -1,4 +1,4 @@
-import { Box, Container, Flex, Heading, SimpleGrid, Text } from "@chakra-ui/react";
+import { Box, Heading } from "@chakra-ui/react";
 import * as CSS from "csstype";
 
 type SectionProps = {

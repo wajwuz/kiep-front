@@ -1,7 +1,7 @@
 import { extendTheme, withDefaultColorScheme } from '@chakra-ui/react'
 
 const theme = extendTheme(
-  withDefaultColorScheme({ colorScheme: 'pink' }),
+  withDefaultColorScheme({ colorScheme: 'gray' }),
   {
     initialColorMode: 'light',
     useSystemColorMode: false,
@@ -9,7 +9,7 @@ const theme = extendTheme(
       pink: {
         50: "#fcedff",
         100: "#eac7f0",
-        500: "#C684D0",
+        500: "#1E5F74",
         600: "#9b67a3",
         700: "#805587",
       },
@@ -20,8 +20,8 @@ const theme = extendTheme(
     styles: {
       global: {
         body: {
-          bg: "#FEFBFF",
-          color: "#2B2E33",
+          bg: "#191A20",
+          color: "#FFFFFF",
         },
       },
     },
