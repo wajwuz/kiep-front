@@ -44,7 +44,7 @@ const DesktopNavBar = () => (
             <Link
                 key={item.title}
                 fontWeight="600"
-                color="#000"
+                color="#B2B2B2"
                 marginLeft="3.625rem"
                 textTransform="uppercase"
                 href={item.href}
@@ -104,7 +104,7 @@ const Logo = (props: LinkProps) => (
     <Link
         width="11rem"
         fontWeight="600"
-        color="#000"
+        color="#B2B2B2"
         href="/"
 
         isTruncated
