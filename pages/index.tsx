@@ -48,7 +48,7 @@ const Hero = () => (
       </Box>
     </Box>
 
-    <Image src="/static/Server_owner.svg" alt="" width={"200px"} height={"200px"} />
+    <Image src="/static/logo.svg" alt="" width={"200px"} height={"200px"} />
   </Flex>
 )
 
