@@ -17,14 +17,10 @@ const NAV_ITEMS: Array<NavItem> = [
         title: "Features",
         href: "/#features",
     },
-    // {
-    //     title: "Funkcje",
-    //     href: "/#functions",
-    // },
     {
         title: "Prices",
         href: "/#prices",
-    },
+    }
 ]
 
 
@@ -72,9 +68,6 @@ const MobileNavBar = () => (
             <MenuList borderWidth="0" textColor={"#191A20"}>
                 {NAV_ITEMS.map(item => (<MobileNavBarItem key={item.title} {...item} />))}
 
-                {/* <MobileNavBarItem display={{ base: "flex", md: "none" }} title="Dokumentacja"
-                    href={DOCS_URL} /> */}
-
                 <MobileNavBarItem display={{ base: "flex", md: "none" }} title="Join discord server"
                     href={DISCORD_URL} />
             </MenuList>
@@ -116,16 +109,9 @@ const Logo = (props: LinkProps) => (
 
 const Important = (props: ButtonProps) => (
     <>
-        {/* <Docs {...props} /> */}
         <Discord {...props} />
     </>
 );
-
-// const Docs = (props: ButtonProps) => (
-//     <Button as="a" href={DOCS_URL} variant="ghost" marginLeft="3rem" {...props}>
-//         Dokumentacja
-//     </Button>
-// )
 
 const Discord = (props: ButtonProps) => (
     <Button as="a" href={DISCORD_URL} colorScheme="pink" marginLeft="3rem" {...props}>

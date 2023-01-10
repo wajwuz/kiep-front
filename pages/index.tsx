@@ -15,8 +15,7 @@ const Home: NextPage = () => (
 
     <Hero />
     <Features />
-    {/* <Functions /> */}
-    <AvailablePlans />
+    <Prices />
   </>
 )
 
@@ -98,91 +97,7 @@ const FeaturesEntry: React.FC<FeaturesEntryProps> = ({ title, description, icon 
   </Flex>
 )
 
-// const Functions = () => (
-//   <Section
-//     id="functions"
-//     title="Funkcje"
-//   >
-//     <Tabs variant="line" width="100%" isFitted>
-//       <TabList padding="0 4.5rem" flexDirection={{ base: "column", md: "row" }}>
-//         <Tab>Anty bot</Tab>
-//         <Tab>Logowanie</Tab>
-//         <Tab>Naprawa skinów</Tab>
-//         <Tab>Load balancer</Tab>
-//         <Tab>Anty DDoS</Tab>
-//       </TabList>
-
-//       <TabPanels>
-//         <TabPanel>
-//           <Feature image="/static/landing/vcn.png" imageAlt="Wygląd systemu Anty bot w grze - obrazek captcha.">
-//             <Heading size="md">Weryfikacja odbywa się po stronie proxy</Heading>
-//             <br />
-//             <Text>
-//             Weryfikacja chroniąca przed botami odbywa się podczas próby wejścia na serwer, w ramach której nasze systemy sprawdzają połączenie pod kątem tego, czy kryje się za nim prawdziwy gracz. Dodatkowo gracz może zostać poproszony o przepisanie kodu captcha z obrazka wyświetlonego w grze, a w specyficznych sytuacjach będzie zmuszony do wypełnienie captchy na stronie internetowej.
-//             </Text>
-//             <br />
-//             <Text>Nic skomplikowanego, a dzięki temu żaden bot nie przedostanie się na serwer.</Text>
-//           </Feature>
-//         </TabPanel>
-
-//         <TabPanel>
-//           {/* <Feature> */}
-//         </TabPanel>
-
-//         <TabPanel>
-//           {/* <Feature> */}
-//         </TabPanel>
-
-//         <TabPanel>
-//           {/* <Feature> */}
-//         </TabPanel>
-
-//         <TabPanel>
-//           {/* <Feature> */}
-//         </TabPanel>
-//       </TabPanels>
-//     </Tabs>
-//   </Section>
-// )
-
-// type FeatureProps = {
-//   image: string,
-//   imageAlt: string,
-//   children: React.ReactNode,
-// };
-
-// const Feature = ({ image, imageAlt, children }: FeatureProps) => (
-//   <Flex
-//     marginTop={{ base: "1.125rem", lg: "3.125rem" }}
-//     flexDirection={{ base: "column", md: "row" }}
-//     alignItems={{ base: "center", md: "start" }}
-//     gap={{ base: "2rem", md: "4.375rem" }}
-//   >
-//     <Flex
-//       flexShrink="0"
-//       borderRadius="25"
-//       borderColor="#CDC4CC"
-//       borderWidth="1px"
-//       overflow="clip"
-//       width={{base: "100%", md: "50%"}}
-//       maxWidth="400px"
-//       height="80%"
-//       backgroundColor="#FCECFF"
-//       padding="2rem 2rem 0 0"
-//     >
-//       <Image
-//         src={image} alt={imageAlt}
-//         objectFit="cover"
-//       />
-//     </Flex>
-
-//     <Box>
-//       {children}
-//     </Box>
-//   </Flex>
-// )
-
-const AvailablePlans = () => (
+const Prices = () => (
   <Section
     id="prices"
     title="Prices"
