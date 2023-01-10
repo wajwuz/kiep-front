@@ -65,7 +65,7 @@ const MobileNavBar = () => (
                 icon={<HamburgerIcon />}
                 variant='ghost'
             />
-            <MenuList borderWidth="0" textColor={"#191A20"}>
+            <MenuList backgroundColor={"#3C4048"} borderWidth="0" textColor={"#FFF"}>
                 {NAV_ITEMS.map(item => (<MobileNavBarItem key={item.title} {...item} />))}
 
                 <MobileNavBarItem display={{ base: "flex", md: "none" }} title="Join discord server"
